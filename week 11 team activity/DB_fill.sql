@@ -1,0 +1,43 @@
+INSERT INTO people (first_name, last_name, dob) VALUES ('Bill', 'Ulmer', '10/20/1930');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Norbert', 'Syrstad', '10/20/1930');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Jean', '?????', '10/20/1934');
+INSERT INTO people (first_name, last_name, dob) VALUES ('LaQuita', 'Joy', '10/20/1937');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Joe', 'Ulmer', '10/19/1951');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Wendy', 'Syrstad', '11/24/1951');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Nate', 'Ulmer', '10/20/1989');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Leah', 'Ulmer', '1/2/1990');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Jared', 'Ulmer', '2/20/1985');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Mike', 'Ulmer', '3/20/1983');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Sarah', 'Ulmer', '4/20/1981');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Beth', 'Ulmer', '5/20/1978');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Dan', 'Ulmer', '6/20/1976');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Emily', 'Ulmer', '7/20/1974');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Aaron', 'Ulmer', '8/20/1972');
+INSERT INTO people (first_name, last_name, dob) VALUES ('Adam', 'Ulmer', '9/20/1970');
+
+INSERT INTO child_of (child_id, parent_id) VALUES (5, 1);
+INSERT INTO child_of (child_id, parent_id) VALUES (5, 3);
+INSERT INTO child_of (child_id, parent_id) VALUES (6, 2);
+INSERT INTO child_of (child_id, parent_id) VALUES (6, 4);
+
+INSERT INTO child_of (child_id, parent_id) VALUES (7, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (7, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (8, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (8, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (9, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (9, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (10, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (10, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (11, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (11, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (12, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (12, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (13, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (13, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (14, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (14, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (15, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (15, 6);
+INSERT INTO child_of (child_id, parent_id) VALUES (16, 5);
+INSERT INTO child_of (child_id, parent_id) VALUES (16, 6);
+
