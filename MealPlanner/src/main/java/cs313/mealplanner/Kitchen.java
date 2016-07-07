@@ -37,29 +37,15 @@ public class Kitchen {
     }
     /**
      * getAccountInfo
-     * RETURNS a Map like this one:
-     * {
-     *  user_id = 3,
-     *  email = i8fudge@publicrestrooms.net,
-     *  password = asdf1234,
-     *  mealplan_id = 3,
-     *  user_info = {   name = Nate,
-     *                  dob = 10/20/1989, 
-     *                  gender = M, 
-     *                  height = 69, 
-     *                  weight = 150, 
-     *                  activity = ???,
-     *                  goal = -10 },
-     *  <something> = { <the meal plan Map...>}
-     * }
-     * 
+     * RETURNS a Map containing user info and meal plan info
      */
     // PS, don't forget your \" when building prepared statements.
     public Map getAccountInfo (String email, String password) {
         Map user_table_data = new HashMap();
-        Map meal_plan_table_data = new HashMap();
+        //Map meal_plan_table_data = new HashMap();
         
         user_table_data = retrieve("SELECT * FROM users WHERE users.email = \""+email+"\" AND users.password = \""+password+"\"");
+        /*
         user_table_data.put("user_id", user_table_data.get("id")); // "id" is going to be overwritten here in a sec...
         
         if (user_table_data.get("mealplan_id") != null) {
@@ -69,15 +55,24 @@ public class Kitchen {
         }
         
         user_table_data.remove("id"); // and get rid of the redundant/ambiguously-named variable 'id'.
-
+        */
         return user_table_data;
     }
     
-    /*
-    public Map getUserMealPlan (int userId) {
-        return retrieve("SELECT * FROM meal_plans WHERE meal_plans.id = (SELECT mealplan_id FROM users WHERE users.email = )");
+    
+    public Map getMealPlan (int mealplan_id) {
+        Map mealplan = new HashMap();
+        Map temp = retrieve("SELECT * FROM meal_plans WHERE meal_plans.id = \""+mealplan_id+"\"");
+        Set<String> meals_of_days = temp.keySet();
+        
+        for (String meal : meals_of_days) {
+            if (!(meal.equals("id")))
+                mealplan.put(meal, getRecipe(Integer.parseInt((String)(temp.get(meal)))));
+        }
+        
+        return mealplan;
     }
-    */
+    
     
     public Map getRecipe (int recipeId) {
         return retrieve("SELECT * FROM recipes WHERE recipes.id = \""+recipeId+"\"");
@@ -93,9 +88,8 @@ public class Kitchen {
     }
     
     public int insertNewUser (String name, String email, String password) {
-        Map my_name = new HashMap();
-        my_name.put("name", name);
-        return modify("INSERT INTO users (email, password, user_info) VALUES (\""+email+"\", \""+password+"\", \""+my_name+"\")");
+        
+        return modify("INSERT INTO users (email, password, user_info) VALUES (\""+email+"\", \""+password+"\", \""+name+"\")");
     }
     
     public int updateUserInfo (Map account_info) {

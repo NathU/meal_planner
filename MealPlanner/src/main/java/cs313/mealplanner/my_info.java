@@ -33,6 +33,8 @@ public class my_info extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Map temp = (HashMap)(request.getSession().getAttribute("profile_info"));
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -43,7 +45,15 @@ public class my_info extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h3> This is just to test the servlet and make sure it works... </h3> <hr/>");
-            out.println("<p>All user profile info: <br/>" + request.getSession().getAttribute("profile_info") + "</p>");
+            //out.println("<p>All user profile info: <br/>" + request.getSession().getAttribute("profile_info") + "</p>");
+            out.println("<p>Name: "+temp.get("name")+"</p>");
+            out.println("<p>email: "+temp.get("email")+"</p>");
+            out.println("<p>DoB: "+temp.get("dob")+"</p>");
+            out.println("<p>Weight: "+temp.get("weight")+"</p>");
+            out.println("<p>Height: "+temp.get("height")+"</p>");
+            out.println("<form action=\"view_week_plan\" method=\"POST\">"+
+                    "<input type=\"submit\" value=\"View My Week Plan\" />"+
+                    "</form>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -81,7 +91,7 @@ public class my_info extends HttpServlet {
         request.getSession().setAttribute("profile_info", profile_info);       
         
         
-        //request.getRequestDispatcher("profile.jsp").forward(request, response);
+        request.getRequestDispatcher("profile.jsp").forward(request, response);
         processRequest(request, response);
     }
 

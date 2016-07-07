@@ -21,9 +21,9 @@
             <h2>Sunday:</h2>
             <table>
                 <tr>
-                    <td>Breakfast</td> 
+                    <td>Breakfast: </td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.sun_b_recipe}</td>
+                    <td>${mealplan.Sunday_breakfast.label}</td>
                 </tr>
                 <tr>
                     <td>Lunch</td> 

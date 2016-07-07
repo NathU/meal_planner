@@ -44,7 +44,7 @@ public class view_week_plan extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h3> This is just to test the servlet and make sure it works... </h3> <hr/>");
-            out.println("<p>All user profile info: <br/>" + request.getSession().getAttribute("week_plan_meals") + "</p>");
+            out.println("<p>All user profile info: <br/>" + request.getSession().getAttribute("mealplan") + "</p>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,7 +77,7 @@ public class view_week_plan extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Map temp = (HashMap)(request.getSession().getAttribute("profile_info"));
-        ArrayList week_plan = new ArrayList();
+        /*ArrayList week_plan = new ArrayList();
         week_plan.add(temp.get("Sunday_breakfast"));
         week_plan.add(temp.get("Sunday_lunch"));
         week_plan.add(temp.get("Sunday_dinner"));
@@ -98,9 +98,16 @@ public class view_week_plan extends HttpServlet {
         week_plan.add(temp.get("Friday_dinner"));
         week_plan.add(temp.get("Saturday_breakfast"));
         week_plan.add(temp.get("Saturday_lunch"));
-        week_plan.add(temp.get("Saturday_dinner"));
-        request.getSession().setAttribute("week_plan_meals", week_plan);       
-        processRequest(request, response);
+        week_plan.add(temp.get("Saturday_dinner"));*/
+        
+        Kitchen kitchen = new Kitchen();
+        Map mealplan = new HashMap();
+        mealplan = kitchen.getMealPlan(Integer.parseInt((String)(temp.get("mealplan_id"))));
+        
+        request.getSession().setAttribute("mealplan", mealplan);       
+        
+        request.getRequestDispatcher("week_plan.jsp").forward(request, response);
+        //processRequest(request, response);
     }
 
     /**
