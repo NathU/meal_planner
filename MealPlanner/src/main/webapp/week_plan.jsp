@@ -15,7 +15,7 @@
     <body>
         <div id="header">
             <h1>Week Plan</h1>
-            <label>Daily Calorie Recommendation: </label> ${param.calorie_rec}
+            
         </div>
         <div id="sunday">
             <h2>Sunday:</h2>
@@ -28,137 +28,143 @@
                 <tr>
                     <td>Lunch</td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.sun_l_recipe}</td>
+                    <td>${mealplan.Sunday_lunch.label}</td>
                 </tr>
                 <tr>
                     <td>Supper</td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.sun_s_recipe}</td>
+                    <td>${mealplan.Sunday_dinner.label}</td>
                 </tr>
             </table>
         </div>
-        <div id="monday">
-            <h2>Sunday</h2>
+        
+		<div id="monday">
+            <h2>Monday:</h2>
             <table>
                 <tr>
-                    <td>Breakfast</td> 
+                    <td>Breakfast: </td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.mon_b_recipe}</td>
+                    <td>${mealplan.Monday_breakfast.label}</td>
                 </tr>
                 <tr>
                     <td>Lunch</td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.mon_l_recipe}</td>
+                    <td>${mealplan.Monday_lunch.label}</td>
                 </tr>
                 <tr>
                     <td>Supper</td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.mon_s_recipe}</td>
+                    <td>${mealplan.Monday_dinner.label}</td>
                 </tr>
             </table>
         </div>
-        <div id="tuesday">
+        
+		<div id="tuesday">
             <h2>Tuesday:</h2>
             <table>
                 <tr>
-                    <td>Breakfast</td> 
+                    <td>Breakfast: </td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.tues_b_recipe}</td>
+                    <td>${mealplan.Tuesday_breakfast.label}</td>
                 </tr>
                 <tr>
                     <td>Lunch</td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.tues_l_recipe}</td>
+                    <td>${mealplan.Tuesday_lunch.label}</td>
                 </tr>
                 <tr>
                     <td>Supper</td> 
                     <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                    <td>${param.tues_s_recipe}</td>
+                    <td>${mealplan.Tuesday_dinner.label}</td>
                 </tr>
             </table>
         </div>
-    </div>
-    <div id="wednesday">
-        <h2>Wednesday:</h2>
-        <table>
-            <tr>
-                <td>Breakfast</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.wed_b_recipe}</td>
-            </tr>
-            <tr>
-                <td>Lunch</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.wed_l_recipe}</td>
-            </tr>
-            <tr>
-                <td>Supper</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.wed_s_recipe}</td>
-            </tr>
-        </table>
-    </div>
-    <div id="thursday">
-        <h2>Thursday:</h2>
-        <table>
-            <tr>
-                <td>Breakfast</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.thu_b_recipe}</td>
-            </tr>
-            <tr>
-                <td>Lunch</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.thu_l_recipe}</td>
-            </tr>
-            <tr>
-                <td>Supper</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.thu_s_recipe}</td>
-            </tr>
-        </table>
-    </div>
-    <div id="friday">
-        <h2>Friday:</h2>
-        <table>
-            <tr>
-                <td>Breakfast</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.fri_b_recipe}</td>
-            </tr>
-            <tr>
-                <td>Lunch</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.fri_l_recipe}</td>
-            </tr>
-            <tr>
-                <td>Supper</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.fri_s_recipe}</td>
-            </tr>
-        </table>
-    </div>
-    <div id="saturday">
-        <h2>Saturday:</h2>
-        <table>
-            <tr>
-                <td>Breakfast</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.sat_b_recipe}</td>
-            </tr>
-            <tr>
-                <td>Lunch</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.sat_l_recipe}</td>
-            </tr>
-            <tr>
-                <td>Supper</td> 
-                <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                <td>${param.sat_s_recipe}</td>
-            </tr>
-        </table>
-    </div>
-    <!--Link to sign in page-->
+	
+		<div id="wednesday">
+            <h2>Wednesday:</h2>
+            <table>
+                <tr>
+                    <td>Breakfast: </td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Wednesday_breakfast.label}</td>
+                </tr>
+                <tr>
+                    <td>Lunch</td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Wednesday_lunch.label}</td>
+                </tr>
+                <tr>
+                    <td>Supper</td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Wednesday_dinner.label}</td>
+                </tr>
+            </table>
+        </div>	
+	
+		<div id="thursday">
+            <h2>Thursday:</h2>
+            <table>
+                <tr>
+                    <td>Breakfast: </td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Thursday_breakfast.label}</td>
+                </tr>
+                <tr>
+                    <td>Lunch</td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Thursday_lunch.label}</td>
+                </tr>
+                <tr>
+                    <td>Supper</td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Thursday_dinner.label}</td>
+                </tr>
+            </table>
+        </div>
+	
+		<div id="friday">
+            <h2>Friday:</h2>
+            <table>
+                <tr>
+                    <td>Breakfast: </td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Friday_breakfast.label}</td>
+                </tr>
+                <tr>
+                    <td>Lunch</td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Friday_lunch.label}</td>
+                </tr>
+                <tr>
+                    <td>Supper</td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Friday_dinner.label}</td>
+                </tr>
+            </table>
+        </div>
+	
+		<div id="saturday">
+            <h2>Saturday:</h2>
+            <table>
+                <tr>
+                    <td>Breakfast: </td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Saturday_breakfast.label}</td>
+                </tr>
+                <tr>
+                    <td>Lunch</td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Saturday_lunch.label}</td>
+                </tr>
+                <tr>
+                    <td>Supper</td> 
+                    <!--Should these params be a loop so they can put in as many recipes as they want? -->
+                    <td>${mealplan.Saturday_dinner.label}</td>
+                </tr>
+            </table>
+        </div>
+	
+	<!--Link to sign in page-->
     <a href="">Not you? Sign in!</a>
 </body>
 </html>
