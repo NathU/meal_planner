@@ -7,7 +7,6 @@ package cs313.mealplanner;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -42,14 +41,22 @@ public class search extends HttpServlet {
       UriBuilder uriBuilder = UriBuilder.fromUri(APIURL).
             queryParam("app_id", APPID).
             queryParam("app_key", APPKEY).
-            queryParam("q", request.getParameter("q"));
+            queryParam("q", request.getParameter("q")).
+            queryParam("from", request.getParameter("from")).
+            queryParam("to", request.getParameter("to"));
         
       Map<String, Object> map = new ObjectMapper().readValue(uriBuilder.build().toURL(), Map.class);
         
       List recipes = (List) map.get("hits");
       request.setAttribute("hits", recipes);
+      request.setAttribute("q", request.getParameter("q"));
+      request.setAttribute("prevFrom", (Integer.parseInt(request.getParameter("from")) - 5));
+      request.setAttribute("prevTo", (Integer.parseInt(request.getParameter("to")) - 5));
+      request.setAttribute("nextFrom", request.getParameter("to"));
+      request.setAttribute("nextTo", (Integer.parseInt(request.getParameter("to")) + 5));
+      request.setAttribute("count", map.get("count"));
       request.getRequestDispatcher("recipe_search.jsp").forward(request, response);
-    }
+   }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

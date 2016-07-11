@@ -41,3 +41,16 @@ body {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.recipe-label {
+    float: left;
+    margin: auto;
+    width: 85%;
+}
+
+.calories {
+    float: left;
+    margin: auto;
+    width: 15%;
+    text-align: right;
+}
