@@ -10,32 +10,40 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
         <title>Profile Page</title>
     </head>
     <body>
+    <header>
+        <img class="banner" src="./banner.png" alt="The ULTIMATE Meal Planner Supreme Omega 2000 X52">
+    </header>
+    <div class="content">
         <label>Date of Birth: </label><input type="date" name="birthday" min="1900-01-02"> ${profile_info.dob}
-        <br>
+        <br><br>
         <label>Gender: </label> <input type="radio" name="gender" value="male" checked>Male <input type="radio" name="gender" value="female"> Female
-        <br>
+        <br><br>
         <label>Height: </label> <input type="text" name="feet" /> Feet <input type="text" name="inches" /> Inches
-        <br>
+        <br><br>
         <label>Weight: </label> <input type="text" name="weight" /> Pounds 
-        <br>
+        <br><br>
         <label>Activity: </label> 
         <select name="activity_level">
             <option value="light_activity">Light Activity</option>
             <option value="medium_activity">Medium Activity</option>
             <option value="high_activity">High Activity</option>
         </select>
-        <br>
+        <br><br>
         <label>Weekly Weight Loss Goal (in lbs): </label>
         <select name="weight_loss_goal">
             <option value="0">0</option>
             <option value="1">1</option> 
             <option value="2">2</option>
         </select>
-        <br>
-        <input type="submit">
-        
-    </body>
+        <br><br>
+        <input type="submit" class="button">
+    </div>
+    <footer>
+
+    </footer>
+</body>
 </html>
