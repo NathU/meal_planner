@@ -3,7 +3,8 @@ html {
     background-color: #98FB98;   
 }
 body {
-    
+    width: 70%;
+    margin: auto;
 }
 
 .content {
@@ -53,4 +54,8 @@ body {
     margin: auto;
     width: 15%;
     text-align: right;
+}
+
+span form {
+    display: inline;
 }

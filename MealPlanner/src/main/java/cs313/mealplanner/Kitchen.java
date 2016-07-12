@@ -14,15 +14,15 @@ import java.sql.*;
  */
 public class Kitchen {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-    static private String DB_URL = "jdbc:mysql://localhost/kitchen";
+    static private String DB_URL = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/kitchen";
     static private String USER;
     static private String PASS;
     
     
     // Default constructor initializes basic parameters for THIS specific proj.
     Kitchen () {
-        USER = "root";
-        PASS = "";
+        USER = "admingBniAur";
+        PASS = "cIE7pZ1LstTf";
         
     }
     
