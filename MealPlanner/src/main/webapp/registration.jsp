@@ -23,12 +23,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>First Name</td>
-                        <td><input type="text" name="fname" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td><input type="text" name="lname" value="" /></td>
+                        <td>Name</td>
+                        <td><input type="text" name="name" value="" /></td>
                     </tr>
                     <tr>
                         <td>Email</td>
@@ -36,7 +32,7 @@
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="text" name="pass" value="" /></td>
+                        <td><input type="text" name="password" value="" /></td>
                     </tr>
                     <tr>
                         <td>Date of Birth</td>
@@ -73,7 +69,27 @@
                     <tr>
                         <td>Weight</td>
                         <td><input type="text" name="weight" value="" /></td>
-                    </tr> 
+                    </tr>
+                    <tr>
+                        <td>Activity Level</td>
+                        <td>
+                            <select name="activity">
+                            <option value="light_activity">Light Activity</option>
+                            <option value="medium_activity">Medium Activity</option>
+                            <option value="high_activity">High Activity</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Weekly Weight Loss Goal (in lbs)</td>
+                        <td>
+                            <select name="goal">
+                                <option value="0">0</option>
+                                <option value="1">1</option> 
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                    </tr>                    
                     <tr>
                         <td><input type="submit" value="Submit" /></td>
                         <td><input type="reset" value="Reset" /></td>

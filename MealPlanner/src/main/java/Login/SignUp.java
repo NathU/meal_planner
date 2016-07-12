@@ -36,23 +36,24 @@ public class SignUp extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
             
-            String fname = request.getParameter("fname");
-            String lname = request.getParameter("lname");
+            String name = request.getParameter("name");
             String email = request.getParameter("email");
-            String pass = request.getParameter("pass");
+            String password= request.getParameter("password");
             String dob = request.getParameter("dob");
             String gender = request.getParameter("gender");
             String fHeight = request.getParameter("fHeight");
             String iHeight = request.getParameter("iHeight");
             String weight = request.getParameter("weight");
+            String activity = request.getParameter("activity");
+            String goal = request.getParameter("goal");
        try{
             Class.forName("com.mysql.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/login", "root", "");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitchen", "root", "");
             Statement st = con.createStatement();
             //ResultSet rs;
-            int i = st.executeUpdate("INSERT INTO users VALUES ('" + fname + "','" + lname + "','" + email + "','" + dob + "','" + gender + "','" + weight + "','" + pass + "','" + fHeight + "','" + iHeight + "')" );
+            int i = st.executeUpdate("INSERT INTO users VALUES ('" + email + "','" + password + "','" + name + "','" + dob + "','" + gender + "','" + fHeight + "','" + iHeight + "','" + weight + "','" + activity + "','" + goal + "')" );
             if (i > 0) {
-                 response.sendRedirect("welcome.jsp");
+                 response.sendRedirect("week_plan.jsp");
             } else {
                 response.sendRedirect("index.jsp");
             } 

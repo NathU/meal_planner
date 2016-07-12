@@ -34,20 +34,20 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String email = request.getParameter("email");    
-        String pass = request.getParameter("pass");
+        String password = request.getParameter("password");
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/login",
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitchen",
             "root", "");
             Statement st = con.createStatement();
             ResultSet rs;
-            rs = st.executeQuery("select * from users where email='" + email + "' and pass='" + pass + "'");
+            rs = st.executeQuery("select * from users where email='" + email + "' and password='" + password + "'");
             if (rs.next()) {
                             HttpSession session = request.getSession();
                             session.setAttribute("email", email);
                             //out.println("welcome " + userid);
                             //out.println("<a href='logout.jsp'>Log out</a>");
-                            response.sendRedirect("success.jsp");
+                            response.sendRedirect("week_plan.jsp");
             } 
             else {
                     out.println("Invalid password <a href='index.jsp'>try again</a>");
