@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 
-/**
- *
- * @author samue
- */
+
 public class SignUp extends HttpServlet {
 
     /**
