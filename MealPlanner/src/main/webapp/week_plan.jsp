@@ -3,6 +3,20 @@
     Created on : Jun 29, 2016, 4:57:11 PM
     Author     : Meghan
 --%>
+<%
+    // this is to ensure protected pages cannot be accessed after logout.
+response.setHeader("Cache-Control","no-cache"); //forces caches to obtain a new copy of the page from the origin server
+response.setHeader("Cache-Control","no-store"); //directs caches not to store the page under any circumstance
+response.setDateHeader("Expires", 0); //causes the proxy cache to see the page as "stale"
+response.setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
+
+String userId = (String) session.getAttribute("email");
+if (null == userId) {
+	request.setAttribute("Error", "Session has ended.  Please login.");
+	RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+	rd.forward(request, response);
+}
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
@@ -13,6 +27,10 @@
         <title>Week Plan Page</title>
     </head>
     <body>
+        <div align="right">
+        <a href="logout.jsp">Log out</a>
+        </div>
+        
         <div id="header">
             <h1>Week Plan</h1>
             
