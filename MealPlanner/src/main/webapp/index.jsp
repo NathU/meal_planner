@@ -1,14 +1,14 @@
 <%-- 
     Document   : index
     Created on : Jun 28, 2016, 10:26:51 PM
-    Author     : 
+    Author     : Sam Fonua
+    // js needed for input validation
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html">
         <title>Meal Planner</title>
     </head>
     <body>
@@ -34,9 +34,10 @@
                         <td><input type="reset" value="Reset" /></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Not a member?Register <a href="registration.jsp">here</a></td>
+                        <td colspan="2">Not a member?Register <a href="registration.jsp">here</a>
+                            Forgot Password? Click <a href="forgot.jsp">here</a>
+                        </td>
                     </tr>
-                </tbody>
                 </tbody>
             </table>
             </center>
