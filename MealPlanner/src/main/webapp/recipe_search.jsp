@@ -34,9 +34,11 @@ if (null == userId) {
             <input type="hidden" name="from" value="0">
             <input type="hidden" name="to" value="5">  
         </form>
+        <div class="recipe-header">
         <c:if test="${!empty hits}">
            <h2>Recipes</h2>
         </c:if>
+        </div>
         <c:forEach var="hit" items="${hits}">
             <div class="recipe-hit">
                 <div class="recipe-label">${hit.recipe.label}</div>
