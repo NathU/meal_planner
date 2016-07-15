@@ -1,3 +1,4 @@
+/*General CSS*/
 html {
     /*padding-left: 300px;*/
     background-color: #98FB98;   
@@ -53,6 +54,23 @@ body {
     cursor: pointer;
 }
 
+.search {
+    height: 43px;
+    font-size:150%;
+}
+
+.calories {
+    float: left;
+    margin: auto;
+    width: 15%;
+    text-align: right;
+}
+
+span form {
+    display: inline;
+}
+
+/*recipe_search specific*/
 .recipe-hit {
     border-bottom-color: #775555;
     border-bottom-style: solid;
@@ -71,13 +89,19 @@ body {
     width: 85%;
 }
 
-.calories {
-    float: left;
-    margin: auto;
-    width: 15%;
-    text-align: right;
+/*App Store */
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  color: #B6A0D2;
 }
-
-span form {
-    display: inline;
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
 }
