@@ -30,6 +30,16 @@ body {
     height: 75%;
 }
 
+.smallbutton {
+    background-color: #B6A0D2;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    cursor: pointer;
+}
+
 .button {
     background-color: #B6A0D2;
     border: none;
@@ -41,6 +51,18 @@ body {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.recipe-hit {
+    border-bottom-color: #775555;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+}
+
+.recipe-header {
+    border-bottom-color: #775555;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
 }
 
 .recipe-label {
