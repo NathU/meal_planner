@@ -24,12 +24,16 @@ if (null == userId) {
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+    <header>
+            <img class="banner" src="./banner.png" alt="The ULTIMATE Meal Planner Supreme Omega 2000 X52">
+        </header>
+        <div class="content">
         <div align="right">
         <a href="logout.jsp">Log out</a>
         </div>        
         <h1>Recipe Search</h1>
         <form action="search" method="POST">
-            <input type="submit" value="Search" class="smallbutton" />
+            <input type="submit" value="Search" class="button" />
             <input type="text" id="query" name="q" class="search" />
             <input type="hidden" name="from" value="0">
             <input type="hidden" name="to" value="5">  
@@ -83,5 +87,6 @@ if (null == userId) {
             </form>
             </c:if>
         </span>
+        </div>
     </body>
 </html>
