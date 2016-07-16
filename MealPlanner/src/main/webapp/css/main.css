@@ -8,6 +8,15 @@ body {
     margin: auto;
 }
 
+.signoutlink {
+    color: white;
+    text-decoration: none;
+    background-color: #B6A0D2;
+    padding: 14px 25px;
+    text-align: center; 
+    display: inline-block;
+}
+
 .content {
     margin-top: 200px;
     margin-bottom: 100px;       
