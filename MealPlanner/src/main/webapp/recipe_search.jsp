@@ -24,19 +24,24 @@ if (null == userId) {
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+    <header>
+        </header>
+        <div class="content">
         <div align="right">
-        <a href="logout.jsp">Log out</a>
+        <a href="logout.jsp" class="signoutlink">Log out</a>
         </div>        
         <h1>Recipe Search</h1>
         <form action="search" method="POST">
-            <input type="submit" value="Search" />
-            <input type="text" id="query" name="q" />
+            <input type="submit" value="Search" class="button" />
+            <input type="text" id="query" name="q" class="search" />
             <input type="hidden" name="from" value="0">
             <input type="hidden" name="to" value="5">  
         </form>
+        <div class="recipe-header">
         <c:if test="${!empty hits}">
            <h2>Recipes</h2>
         </c:if>
+        </div>
         <c:forEach var="hit" items="${hits}">
             <div class="recipe-hit">
                 <div class="recipe-label">${hit.recipe.label}</div>
@@ -45,14 +50,14 @@ if (null == userId) {
                     maxFractionDigits="0"/> Calories</div>
                 <span>
                     <form action="" method="POST">
-                        <input type="submit" value="Add" />
+                        <input type="submit" value="Add" class="smallbutton" />
                         <input type="hidden" name="label" 
                                value="${hit.recipe.label}">
                         <input type="hidden" name="r" 
                                value="${hit.recipe.uri}">
                     </form>
                     <form action="RecipeInfo" method="POST">
-                        <input type="submit" value="View Recipe" />
+                        <input type="submit" value="View Recipe" class="smallbutton" />
                         <input type="hidden" name="r" 
                            value="${hit.recipe.uri}">
                         <input type="hidden" name="q" value="${q}"/>
@@ -66,7 +71,7 @@ if (null == userId) {
         <span>
             <c:if test="${!empty prevFrom && prevTo > 0}">
             <form action="search" method="POST">
-                <input type="submit" value="Previous" />
+                <input type="submit" value="Previous" class="button" />
                 <input type="hidden" name="q" value="${q}"/>
                 <input type="hidden" name="from" value="${prevFrom}">
                 <input type="hidden" name="to" value="${prevTo}">
@@ -74,12 +79,13 @@ if (null == userId) {
             </c:if>        
             <c:if test="${!empty nextFrom && nextTo < count}">
             <form action="search" method="POST">
-                <input type="submit" value="Next" />
+                <input type="submit" value="Next" class="button" />
                 <input type="hidden" name="q" value="${q}"/>
                 <input type="hidden" name="from" value="${nextFrom}">
                 <input type="hidden" name="to" value="${nextTo}">
             </form>
             </c:if>
         </span>
+        </div>
     </body>
 </html>

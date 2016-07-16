@@ -1,3 +1,4 @@
+/*General CSS*/
 html {
     /*padding-left: 300px;*/
     background-color: #98FB98;   
@@ -5,6 +6,15 @@ html {
 body {
     width: 60%;
     margin: auto;
+}
+
+.signoutlink {
+    color: white;
+    text-decoration: none;
+    background-color: #B6A0D2;
+    padding: 14px 25px;
+    text-align: center; 
+    display: inline-block;
 }
 
 .content {
@@ -30,6 +40,16 @@ body {
     height: 75%;
 }
 
+.smallbutton {
+    background-color: #B6A0D2;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    cursor: pointer;
+}
+
 .button {
     background-color: #B6A0D2;
     border: none;
@@ -43,10 +63,9 @@ body {
     cursor: pointer;
 }
 
-.recipe-label {
-    float: left;
-    margin: auto;
-    width: 85%;
+.search {
+    height: 43px;
+    font-size:150%;
 }
 
 .calories {
@@ -58,4 +77,40 @@ body {
 
 span form {
     display: inline;
+}
+
+/*recipe_search specific*/
+.recipe-hit {
+    border-bottom-color: #775555;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+}
+
+.recipe-header {
+    border-bottom-color: #775555;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+}
+
+.recipe-label {
+    float: left;
+    margin: auto;
+    width: 85%;
+}
+
+/*App Store */
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  color: #B6A0D2;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
 }
