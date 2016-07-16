@@ -25,11 +25,10 @@ if (null == userId) {
     </head>
     <body>
     <header>
-            <img class="banner" src="./banner.png" alt="The ULTIMATE Meal Planner Supreme Omega 2000 X52">
         </header>
         <div class="content">
         <div align="right">
-        <a href="logout.jsp">Log out</a>
+        <a href="logout.jsp" class="signoutlink">Log out</a>
         </div>        
         <h1>Recipe Search</h1>
         <form action="search" method="POST">
