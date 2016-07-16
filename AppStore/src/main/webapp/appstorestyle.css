@@ -1,0 +1,113 @@
+/*General CSS*/
+html {
+    /*padding-left: 300px;*/
+    background-color: #98FB98;   
+}
+body {
+    width: 60%;
+    margin: auto;
+}
+
+.content {
+    margin-top: 200px;
+    margin-bottom: 100px;       
+    z-index: 1;
+    height: 100%;
+    position: fixed;
+    background-color: white;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 100px;
+    padding-bottom: 0;
+    background-position: center;
+    border-radius: 25px;
+    margin: 0;
+    font-family: arial, sans-serif;
+    color: #775555;
+}
+
+.banner {
+    width: 65%;
+    height: 75%;
+}
+
+.smallbutton {
+    background-color: #B6A0D2;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    cursor: pointer;
+}
+
+.button {
+    background-color: #B6A0D2;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.search {
+    height: 43px;
+    font-size:150%;
+}
+
+.calories {
+    float: left;
+    margin: auto;
+    width: 15%;
+    text-align: right;
+}
+
+span form {
+    display: inline;
+}
+
+/*recipe_search specific*/
+.recipe-hit {
+    border-bottom-color: #775555;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+}
+
+.recipe-header {
+    border-bottom-color: #775555;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+}
+
+.recipe-label {
+    float: left;
+    margin: auto;
+    width: 85%;
+}
+
+/*App Store */
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  color: #B6A0D2;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
