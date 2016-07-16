@@ -6,13 +6,15 @@
 package Login;
 
 
+import cs313.mealplanner.Kitchen;
 import java.io.*;
 import java.io.PrintWriter;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class LoginController extends HttpServlet {
@@ -32,27 +34,20 @@ public class LoginController extends HttpServlet {
         PrintWriter out = response.getWriter();
         String email = request.getParameter("email");    
         String password = request.getParameter("password");
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitchen",
-            "root", "");
-            Statement st = con.createStatement();
-            ResultSet rs;
-            rs = st.executeQuery("select * from users where email='" + email + "' and password='" + password + "'");
-            if (rs.next()) {
-                            HttpSession session = request.getSession();
-                            session.setAttribute("email", email);
-                            //out.println("welcome " + userid);
-                            //out.println("<a href='logout.jsp'>Log out</a>");
-                            response.sendRedirect("week_plan.jsp");
-            } 
-            else {
-                    out.println("Invalid password <a href='index.jsp'>try again</a>");
-                 }
-            }
-         catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            }
+        
+        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        Map profile_info = new HashMap();
+        profile_info = kitchen.getAccountInfo(email, password);
+        
+        if (profile_info.get("email") != null) {
+            request.getSession().setAttribute("profile_info", profile_info); // so we have mealplan_id in a session var
+            request.getSession().setAttribute("email", email); //redundant, but that's ok.
+            response.sendRedirect("week_plan.jsp");
+        } else {
+            out.println("Invalid password <a href='index.jsp'>try again</a>");
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

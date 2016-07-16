@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class is meant to be a wrapper for JDBC, making it lots easier to use.
  */
 package cs313.mealplanner;
 
@@ -14,26 +12,23 @@ import java.sql.*;
  */
 public class Kitchen {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-    static private String DB_URL = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/kitchen";
+    static private String DB_URL;
     static private String USER;
     static private String PASS;
     
     
-    // Default constructor initializes basic parameters for THIS specific proj.
-    Kitchen () {
+    // Default constructor initializes values for OpenShift site
+    public Kitchen () {
         USER = "admingBniAur";
         PASS = "cIE7pZ1LstTf";
-        
+        DB_URL = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/kitchen";
     }
     
-    // This is really just for testing purposes on your own machine.
-    // Values for the working project (when we get it up on OpenShift)
-    //  should be hard-coded into the Default constructor above, OR
-    //  (more correctly) loaded in from a separate environment file.
-    Kitchen (String u, String p) {
+    // Use this constructor when testing on your local machine.
+    public Kitchen (String u, String p) {
         USER = u;
         PASS = p;
-        
+        DB_URL = "jdbc:mysql://localhost/kitchen";;
     }
     /**
      * getAccountInfo
@@ -59,7 +54,13 @@ public class Kitchen {
         return user_table_data;
     }
     
+    public boolean userExists(String email) {
+        Map user = new HashMap();
+        user = retrieve("SELECT email FROM users WHERE users.email = \""+email+"\"");
+        return (user.get("email") != null);
+    }
     
+    // mealplan_id is found in the Map returned from getAccountInfo, above.
     public Map getMealPlan (int mealplan_id) {
         Map mealplan = new HashMap();
         Map temp = retrieve("SELECT * FROM meal_plans WHERE meal_plans.id = \""+mealplan_id+"\"");
@@ -73,28 +74,42 @@ public class Kitchen {
         return mealplan;
     }
     
-    
+    // recipeId's are found in the Map returned from getMealPlan, above
     public Map getRecipe (int recipeId) {
         return retrieve("SELECT * FROM recipes WHERE recipes.id = \""+recipeId+"\"");
     }
     
+    public int createNewAccount (String email, String password, Map user_info) {
+        String insert = 
+                "INSERT INTO users (email, password, name, dob, gender, height, weight, activity, goal) VALUES ("
+                + "\""+email+"\", "
+                + "\""+password+"\", "
+                + "\""+user_info.get("name")+"\", "
+                + "\""+user_info.get("name")+ "\", "
+                + "\""+user_info.get("gender")+"\", "
+                + ""+user_info.get("height")+", "
+                + ""+user_info.get("weight")+", "
+                + "\""+user_info.get("activity")+"\", "
+                + ""+user_info.get("goal")+")";
+        return modify(insert);
+    }
+    
     // TODO: finish this...
     public int createNewMealPlan (int userId, Map plan) {
-        // First modify inserts plan into meal_plans table.
-        // Second modify updates users table with the newly inserted meal plan's id.
+        // First 'modify' inserts plan into meal_plans table.
+        // Second 'modify' updates users table with the newly inserted meal plan's id.
         // Two rows should be affected after all this. If not, we're in trouble, so return 0.
         int affected_rows = modify("") + modify("");
         return affected_rows > 1 ? affected_rows : 0;
     }
     
-    public int insertNewUser (String name, String email, String password) {
+    /*public int insertNewUser (String name, String email, String password) {
         
         return modify("INSERT INTO users (email, password, user_info) VALUES (\""+email+"\", \""+password+"\", \""+name+"\")");
-    }
+    }*/
     
-    public int updateUserInfo (Map account_info) {
-        return modify("UPDATE users SET user_info = \""+((String)account_info.get("user_info"))+"\""+
-                " WHERE users.id = \""+((String)account_info.get("user_id"))+"\"");
+    public int updatePassword (String email, String password) {
+        return modify("UPDATE users SET password = (\"" + password + "\") WHERE email = (\"" + email + "\")");
     }
     
     private int modify(String query) {

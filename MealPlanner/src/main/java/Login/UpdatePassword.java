@@ -5,11 +5,9 @@
  */
 package Login;
 
+import cs313.mealplanner.Kitchen;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,9 +31,18 @@ public class UpdatePassword extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         String email = (String)session.getAttribute("email");
-        out.println(email);
+        out.println(email); // ?
         String password= request.getParameter("password");
-        out.println(password);
+        out.println(password); // ?
+        
+        Kitchen kitchen = new Kitchen();
+        if (kitchen.updatePassword(email, password) != 1) {
+            out.println("Error. Please try again later");
+        } else {
+            response.sendRedirect("index.jsp");
+        }
+        
+        /*
         try {
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitchen", "root", "");
@@ -52,6 +59,7 @@ public class UpdatePassword extends HttpServlet {
         catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             } 
+        */
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

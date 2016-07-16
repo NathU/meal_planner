@@ -5,13 +5,9 @@
  */
 package Login;
 
+import cs313.mealplanner.Kitchen;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,31 +31,21 @@ public class ForgotPassword extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String email = request.getParameter("email");    
-        String dob = request.getParameter("dob");
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitchen",
-            "root", "");
-            Statement st = con.createStatement();
-            ResultSet rs;
-            rs = st.executeQuery("select * from users where email='" + email + "' and dob='" + dob + "'");
-            if (rs.next()) {
-                            HttpSession session = request.getSession();
-                            session.setAttribute("email", email);
-                            //out.println("welcome " + userid);
-                            //out.println("<a href='logout.jsp'>Log out</a>");
-                            response.sendRedirect("passwordReset.jsp");
-            } 
-            else {
-                    out.println("Invalid password <a href='index.jsp'>try again</a>");
-                 }
-            }
-         catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            }
+        String dob = request.getParameter("dob"); // I didn't know about this criteria before, so dob is NOT a required field in the database. So we can't count on it. Sorry.
+        
+        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        
+        if (kitchen.userExists(email)) {
+            request.getSession().setAttribute("email", email);
+            response.sendRedirect("passwordReset.jsp");
+        } else {
+            out.println("Invalid password <a href='index.jsp'>try again</a>");
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
