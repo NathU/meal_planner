@@ -79,6 +79,11 @@ public class Kitchen {
         return retrieve("SELECT * FROM recipes WHERE recipes.id = \""+recipeId+"\"");
     }
     
+    // THis will work fine IF url to a given recipe doesn't change. ie, url is basically a unique identifier.
+    public Map getRecipe (String label, String url) {
+        return retrieve("SELECT * FROM recipes WHERE recipes.label = \""+label+"\" AND recipes.url = \""+url+"\"");
+    }
+    
     public int createNewAccount (String email, String password, Map user_info) {
         String insert = 
                 "INSERT INTO users (email, password, name, dob, gender, height, weight, activity, goal) VALUES ("
@@ -103,14 +108,64 @@ public class Kitchen {
         return affected_rows > 1 ? affected_rows : 0;
     }
     
-    /*public int insertNewUser (String name, String email, String password) {
-        
-        return modify("INSERT INTO users (email, password, user_info) VALUES (\""+email+"\", \""+password+"\", \""+name+"\")");
-    }*/
+    public int insertRecipe (String label, String url) {
+        // can't add a recipe that has no url! Doing this here cause I forgot to require it in DB... oops.
+        if (url == null || url.equals("")) {
+            return 0;
+        }
+        return modify("INSERT INTO recipes (label, password, url) VALUES (\""+label+"\", \""+url+"\")");
+    }
     
     public int updatePassword (String email, String password) {
         return modify("UPDATE users SET password = (\"" + password + "\") WHERE email = (\"" + email + "\")");
     }
+    
+    // THis method allows you to plan a recipe that's not in DB yet.
+    // In other words, it adds the recipe to DB if it's not already in there.
+    public Map addRecipeToPlan(String label, String url, String day_meal, int mealplan_id) {
+        //first, make sure this recipe is in the DB
+        Map recipe = new HashMap();
+        recipe = getRecipe(label, url);
+        
+        if (recipe.get("id") == null) {
+            // if it's not yet, add it.
+            insertRecipe(label, url);
+            recipe = getRecipe(label, url);
+        }
+        
+        int id = Integer.parseInt((String)recipe.get("id"));
+        
+        // then, add the recipe to the plan
+        int rows_affected = modify("UPDATE meal_plans SET "+day_meal+" = (\"" + id + "\") WHERE id = ("+mealplan_id+")");
+        
+        // and return the updated plan
+        if (rows_affected != 1) {
+            Map error = new HashMap();
+            error.put("error", "something went wrong...");
+            return error;
+        } else {
+            return getMealPlan(mealplan_id);
+        }
+    }
+    
+    public int deleteRecipeFromPlan(int recipe_id, String day_meal, int mealplan_id) {
+        // first, make sure that mealplan really has that recipe in it.
+        Map plan = new HashMap();
+        plan = getMealPlan(mealplan_id);
+        int deleteMe = Integer.parseInt((String)plan.get(day_meal));
+        
+        if (deleteMe == recipe_id) {
+            return modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
+        } else {
+            return 0;
+        }
+        
+        // We're doing a lot of authentication here. Should we just delete without worrying?
+        //return modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
+        
+    }
+    
+    
     
     private int modify(String query) {
         int affected_rows = 0;
@@ -141,8 +196,6 @@ public class Kitchen {
         
         return affected_rows;
     }
-    
-    
     private Map retrieve (String query) {
         Map query_results = new HashMap();
         Connection conn = null;
