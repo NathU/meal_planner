@@ -43,11 +43,16 @@ public class SignUp extends HttpServlet {
             String weight = request.getParameter("weight"); // needs to be an INT
             String activity = request.getParameter("activity");
             String goal = request.getParameter("goal"); // needs to be an INT
+            
+
             // height is gonna be in inches. Another uninformed DB design decision on my part... sorry!
-            int h = (fHeight != null && iHeight != null)? 
-                    (Integer.parseInt(fHeight) * 12) + Integer.parseInt(iHeight) : 0;
-            int w = (weight != null)? Integer.parseInt(weight) : 0;
-            int g = (weight != null)? Integer.parseInt(goal) : 0;
+            int hf, hi, h = 0;
+            hf = (fHeight != null && !fHeight.equals("")) ? Integer.parseInt(fHeight) : 0;
+            hi = (iHeight != null && !iHeight.equals("")) ? Integer.parseInt(iHeight) : 0;
+            h = (12 * hf) + hi;
+            
+            int w = (weight != null && !weight.equals(""))? Integer.parseInt(weight) : 0;
+            int g = (goal != null && !goal.equals(""))? Integer.parseInt(goal) : 0;
             
             Map user_info = new HashMap();
             user_info.put("name", name);
@@ -58,8 +63,8 @@ public class SignUp extends HttpServlet {
             user_info.put("activity", activity);
             user_info.put("goal", g);
             
-            Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
-            //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+            //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+            Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
             int affected_rows = kitchen.createNewAccount(email, password, user_info);
             
             //  This should already have been validated client-side. But just in case...
