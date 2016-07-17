@@ -148,20 +148,30 @@ public class Kitchen {
         }
     }
     
-    public int deleteRecipeFromPlan(int recipe_id, String day_meal, int mealplan_id) {
+    public Map deleteRecipeFromPlan(int recipe_id, String day_meal, int mealplan_id) {
         // first, make sure that mealplan really has that recipe in it.
         Map plan = new HashMap();
         plan = getMealPlan(mealplan_id);
         int deleteMe = Integer.parseInt((String)plan.get(day_meal));
+        int rows_affected = 0;
         
         if (deleteMe == recipe_id) {
-            return modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
-        } else {
-            return 0;
+            rows_affected = modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
         }
         
+        // return the updated plan. or an error.
+        if (rows_affected != 1) {
+            Map error = new HashMap();
+            error.put("error", "something went wrong...");
+            return error;
+        } else {
+            return getMealPlan(mealplan_id);
+        }
+        
+        
         // We're doing a lot of authentication here. Should we just delete without worrying?
-        //return modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
+        //modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
+        //return getMealPlan(mealplan_id);
         
     }
     
