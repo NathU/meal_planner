@@ -28,11 +28,12 @@ if (null == userId) {
         <a href="logout.jsp" class="signoutlink">Log out</a>
         </div>
         <h1>Recipe</h1>
+        <img src="${image}" alt="Picture" height="150" width="150">
         <div class="recipe-hit">
-            <div class="recipe-label">${hit.recipe.label}</div>
-            <div class="calories"><fmt:formatNumber 
-                value="${hit.recipe.calories}" type="number" 
-                maxFractionDigits="0"/> Calories
+            <div class="recipe-label">${mealTitle}</div>
+            <div class="calories">
+                <fmt:formatNumber value="${calories}" type="number" 
+                                  maxFractionDigits="0"/> Calories
             </div>
         </div>
         <p><b>Ingredients:</b></p>

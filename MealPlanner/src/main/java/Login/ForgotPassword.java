@@ -37,8 +37,8 @@ public class ForgotPassword extends HttpServlet {
         PrintWriter out = response.getWriter();
         String email = request.getParameter("email");    
         
-        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
-        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
         
         if (kitchen.userExists(email)) {
             request.getSession().setAttribute("email", email);
