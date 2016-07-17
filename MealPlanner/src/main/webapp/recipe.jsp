@@ -28,7 +28,7 @@ if (null == userId) {
         <a href="logout.jsp" class="signoutlink">Log out</a>
         </div>
         <h1>Recipe</h1>
-        <img src="${image}" alt="Picture" height="150" width="150">
+        <img src="${image}" alt="Picture" height="150" width="150"><br/>
         <div class="recipe-hit">
             <div class="recipe-label">${mealTitle}</div>
             <div class="calories">
@@ -36,6 +36,7 @@ if (null == userId) {
                                   maxFractionDigits="0"/> Calories
             </div>
         </div>
+        <br/><br/>
         <p><b>Ingredients:</b></p>
         <p>${ingredients}</p>
         <form action="search" method="POST">
