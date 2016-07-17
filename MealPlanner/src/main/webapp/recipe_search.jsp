@@ -54,7 +54,7 @@ if (null == userId) {
                         <input type="hidden" name="label" 
                                value="${hit.recipe.label}">
                         <input type="hidden" name="r" 
-                               value="${hit.recipe.uri}">
+                               value="${hit.recipe.url}">
                     </form>
                     <form action="RecipeInfo" method="POST">
                         <input type="submit" value="View Recipe" class="smallbutton" />

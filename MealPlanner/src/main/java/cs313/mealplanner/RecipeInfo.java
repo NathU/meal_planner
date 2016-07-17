@@ -5,13 +5,17 @@
  */
 package cs313.mealplanner;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.UriBuilder;
 
 /**
  *
@@ -20,6 +24,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "RecipeInfo", urlPatterns = {"/RecipeInfo"})
 public class RecipeInfo extends HttpServlet {
 
+   private static final String APPKEY = "a7e0b3a4d8c5e1216df450b43fa4539a";
+   private static final String APPID = "85eb3545";
+   private static final String APIURL ="https://api.edamam.com/search";
+   
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,19 +39,44 @@ public class RecipeInfo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RecipeInfo</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RecipeInfo at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+       
+         UriBuilder uriBuilder = UriBuilder.fromUri(APIURL).
+               queryParam("app_id", APPID).
+               queryParam("app_key", APPKEY).
+               queryParam("q", request.getParameter("q")).
+               queryParam("from", request.getParameter("from")).
+               queryParam("to", request.getParameter("to"));
+        
+         String uri = request.getParameter("r");
+         ObjectMapper mapper = new ObjectMapper();
+         Map<String, Object> map = mapper.readValue(
+               uriBuilder.build().toURL(), Map.class
+         );
+         List list = (List)map.get("hits");
+         
+         for (Object item : list) {
+            Map<String, Object> innerMap = (Map<String, Object>)item;               
+            String jsonInString2 = mapper.writeValueAsString(innerMap.get("recipe"));
+                    
+            if (jsonInString2.contains(uri)) {     
+               Map<String, Object> map2 = mapper.readValue(jsonInString2, Map.class);
+               request.setAttribute("mealTitle", map2.get("label"));
+               request.setAttribute("image", map2.get("image"));
+               request.setAttribute("url", map2.get("sourceUrl"));
+               List ingredient = (List) map2.get("ingredientLines");
+               String ingredients = ingredient.toString();
+               ingredients = ingredients.replace("[", "");
+               ingredients = ingredients.replace("]", "");
+               request.setAttribute("ingredientL", map2.get("ingredientLines"));
+               request.setAttribute("ingredients", ingredients);
+               request.setAttribute("calories", map2.get("calories"));
+            }
+         }
+         request.setAttribute("q", request.getParameter("q"));
+         request.setAttribute("from", request.getParameter("from"));
+         request.setAttribute("to", request.getParameter("to"));
+         
+         request.getRequestDispatcher("recipe.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -35,12 +35,8 @@ if (null == userId) {
                 maxFractionDigits="0"/> Calories
             </div>
         </div>
-        <ul>
-        <c:forEach var="ingredient" items="${ingredients}">
-            <li>${ingredient}</li>    
-        </c:forEach>
-        </ul>
-        <br/><br/>
+        <p><b>Ingredients:</b></p>
+        <p>${ingredients}</p>
         <form action="search" method="POST">
             <input type="submit" value="Done" class="button"/>
             <input type="hidden" name="q" value="${q}"/>
