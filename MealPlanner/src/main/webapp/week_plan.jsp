@@ -13,6 +13,7 @@ if (null == userId) {
 }
 %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,21 +38,39 @@ if (null == userId) {
                 <table>
                     <tr>
                         <td>Breakfast: </td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Sunday_breakfast.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Sunday_breakfast.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Sunday_breakfast.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Sunday_lunch.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <td>Lunch</td>                         
+                        <c:set var="check" value="${mealplan.Sunday_lunch.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Sunday_lunch.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Sunday_dinner.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <td>Supper</td>                         
+                        <c:set var="check" value="${mealplan.Sunday_dinner.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Sunday_dinner.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                 </table>
             </div>
@@ -60,22 +79,40 @@ if (null == userId) {
                 <h2>Monday:</h2>
                 <table>
                     <tr>
-                        <td>Breakfast: </td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Monday_breakfast.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <td>Breakfast: </td>                         
+                        <c:set var="check" value="${mealplan.Monday_breakfast.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Monday_breakfast.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Monday_lunch.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <td>Lunch</td>                         
+                        <c:set var="check" value="${mealplan.Monday_lunch.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Monday_lunch.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Monday_dinner.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <td>Supper</td>                         
+                        <c:set var="check" value="${mealplan.Monday_dinner.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Monday_dinner.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                 </table>
             </div>
@@ -84,22 +121,40 @@ if (null == userId) {
                 <h2>Tuesday:</h2>
                 <table>
                     <tr>
-                        <td>Breakfast: </td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Tuesday_breakfast.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <td>Breakfast: </td>                         
+                        <c:set var="check" value="${mealplan.Tuesday_breakfast.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Tuesday_breakfast.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Tuesday_lunch.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <td>Lunch</td>                         
+                        <c:set var="check" value="${mealplan.Tuesday_lunch.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Tuesday_lunch.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td>Supper</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Tuesday_dinner.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Tuesday_dinner.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Tuesday_dinner.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                 </table>
             </div>
@@ -109,21 +164,39 @@ if (null == userId) {
                 <table>
                     <tr>
                         <td>Breakfast: </td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Wednesday_breakfast.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Wednesday_breakfast.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Wednesday_breakfast.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Wednesday_lunch.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <td>Lunch</td>                         
+                        <c:set var="check" value="${mealplan.Wednesday_lunch.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Wednesday_lunch.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td>Supper</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Wednesday_dinner.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Wednesday_dinner.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Wednesday_dinner.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                 </table>
             </div>	
@@ -133,21 +206,39 @@ if (null == userId) {
                 <table>
                     <tr>
                         <td>Breakfast: </td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Thursday_breakfast.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Thursday_breakfast.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Thursday_breakfast.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Thursday_lunch.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Thursday_lunch.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Thursday_lunch.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td>Supper</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Thursday_dinner.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Thursday_dinner.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Thursday_dinner.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                 </table>
             </div>
@@ -157,21 +248,39 @@ if (null == userId) {
                 <table>
                     <tr>
                         <td>Breakfast: </td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Friday_breakfast.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Friday_breakfast.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Friday_breakfast.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Friday_lunch.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Friday_lunch.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Friday_lunch.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td>Supper</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Friday_dinner.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Friday_dinner.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Friday_dinner.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                 </table>
             </div>
@@ -181,21 +290,39 @@ if (null == userId) {
                 <table>
                     <tr>
                         <td>Breakfast: </td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Saturday_breakfast.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Saturday_breakfast.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Saturday_breakfast.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Saturday_lunch.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Saturday_lunch.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Saturday_lunch.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td>Supper</td> 
-                        <!--Should these params be a loop so they can put in as many recipes as they want? -->
-                        <td>${mealplan.Saturday_dinner.label}</td>
-                        <td><span id="delete">x</span></td>
+                        <c:set var="check" value="${mealplan.Saturday_dinner.label}"/>
+                        <c:if test="${check != null}">
+                            <td> ${mealplan.Saturday_dinner.label} </td>
+                            <td><span id="delete">x</span></td>
+                        </c:if>
+                        <c:if test="${check == null}">
+                            <td> &nbsp; </td>
+                            <td> &nbsp; </td>
+                        </c:if>
                     </tr>
                 </table>
             </div>
