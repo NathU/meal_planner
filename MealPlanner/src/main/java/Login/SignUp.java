@@ -67,8 +67,8 @@ public class SignUp extends HttpServlet {
             //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
             int affected_rows = kitchen.createNewAccount(email, password, user_info);
             
-            //  This should already have been validated client-side. But just in case...
-            if (email == null || password == null || (affected_rows != 1) ) {
+
+            if (affected_rows != 1 ) {
                 response.sendRedirect("index.jsp");
             } else {
                 Map profile_info = kitchen.getAccountInfo(email, password);
