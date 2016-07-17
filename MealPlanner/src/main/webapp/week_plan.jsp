@@ -49,7 +49,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td>                         
+                        <td>Lunch:</td>                         
                         <c:set var="check" value="${mealplan.Sunday_lunch.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Sunday_lunch.label} </td>
@@ -61,7 +61,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td>                         
+                        <td>Supper:</td>                         
                         <c:set var="check" value="${mealplan.Sunday_dinner.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Sunday_dinner.label} </td>
@@ -91,7 +91,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td>                         
+                        <td>Lunch:</td>                         
                         <c:set var="check" value="${mealplan.Monday_lunch.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Monday_lunch.label} </td>
@@ -103,7 +103,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td>                         
+                        <td>Supper:</td>                         
                         <c:set var="check" value="${mealplan.Monday_dinner.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Monday_dinner.label} </td>
@@ -133,7 +133,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td>                         
+                        <td>Lunch:</td>                         
                         <c:set var="check" value="${mealplan.Tuesday_lunch.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Tuesday_lunch.label} </td>
@@ -145,7 +145,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td> 
+                        <td>Supper:</td> 
                         <c:set var="check" value="${mealplan.Tuesday_dinner.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Tuesday_dinner.label} </td>
@@ -175,7 +175,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td>                         
+                        <td>Lunch:</td>                         
                         <c:set var="check" value="${mealplan.Wednesday_lunch.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Wednesday_lunch.label} </td>
@@ -187,7 +187,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td> 
+                        <td>Supper:</td> 
                         <c:set var="check" value="${mealplan.Wednesday_dinner.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Wednesday_dinner.label} </td>
@@ -217,7 +217,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td> 
+                        <td>Lunch:</td> 
                         <c:set var="check" value="${mealplan.Thursday_lunch.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Thursday_lunch.label} </td>
@@ -229,7 +229,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td> 
+                        <td>Supper:</td> 
                         <c:set var="check" value="${mealplan.Thursday_dinner.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Thursday_dinner.label} </td>
@@ -259,7 +259,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td> 
+                        <td>Lunch:</td> 
                         <c:set var="check" value="${mealplan.Friday_lunch.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Friday_lunch.label} </td>
@@ -271,7 +271,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td> 
+                        <td>Supper:</td> 
                         <c:set var="check" value="${mealplan.Friday_dinner.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Friday_dinner.label} </td>
@@ -301,7 +301,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Lunch</td> 
+                        <td>Lunch:</td> 
                         <c:set var="check" value="${mealplan.Saturday_lunch.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Saturday_lunch.label} </td>
@@ -313,7 +313,7 @@ if (null == userId) {
                         </c:if>
                     </tr>
                     <tr>
-                        <td>Supper</td> 
+                        <td>Supper:</td> 
                         <c:set var="check" value="${mealplan.Saturday_dinner.label}"/>
                         <c:if test="${check != null}">
                             <td> ${mealplan.Saturday_dinner.label} </td>
