@@ -11,6 +11,7 @@
     <head>
         <title>Meal Planner</title>
         <link rel="stylesheet" href="css/main.css">
+        <script type="text/javascript" src="js/common.js"></script>
     </head>
     <body>
         
@@ -29,11 +30,11 @@
                         <tbody>
                             <tr>
                                 <td>User Name</td>
-                                <td><input type="text" name="email" value="" /></td>
+                                <td><input type="text" name="email" value="" required/></td>
                             </tr>
                             <tr>
                                 <td>Password</td>
-                                <td><input type="password" name="password" value="" /></td>
+                                <td><input type="password" name="password" value="" required/></td>
                             </tr>
                         </tbody>
                     </table>

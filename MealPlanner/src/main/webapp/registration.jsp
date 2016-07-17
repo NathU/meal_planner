@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration</title>
         <link rel="stylesheet" href="css/main.css">
+        <script type="text/javascript" src="js/common.js"></script>
     </head>
     <body>
         <div class="content">
@@ -21,15 +22,15 @@
                 <tbody>
                     <tr>
                         <td>Name</td>
-                        <td><input type="text" name="name" value="" /></td>
+                        <td><input type="text" name="name" value="" required/></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="text" name="email" value="" /></td>
+                        <td><input type="text" name="email" value="" required/></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password" name="password" value="" /></td>
+                        <td><input type="password" name="password" value="" required/></td>
                     </tr>
                     <tr>
                         <td>Date of Birth</td>
