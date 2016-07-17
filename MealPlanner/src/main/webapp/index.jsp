@@ -10,37 +10,33 @@
 <html>
     <head>
         <title>Meal Planner</title>
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <form method="post" action="LoginController">
-            <center>
-            <table border="2" width="35%" cellpadding="3">
-                <thead>
-                    <tr>
-                        <th colspan="2">Login Here</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>User Name</td>
-                        <td><input type="text" name="email" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Login" /></td>
-                        <td><input type="reset" value="Reset" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Not a member?Register <a href="registration.jsp">here</a>
-                            Forgot Password? Click <a href="forgot.jsp">here</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            </center>
-        </form>
+        <div class="content">
+            <form method="post" action="LoginController">
+                <h1>Login</h2>
+                
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>User Name</td>
+                                <td><input type="text" name="email" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td><input type="password" name="password" value="" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <br>
+                <input type="submit" value="Login" class="button" />
+                <input type="reset" value="Reset" class="button" />
+                <br>
+                <br>
+                <p>Not a member? Register <a href="registration.jsp">here</a>!</p>
+                <p>Forgot Password? Click <a href="forgot.jsp">here</a>!</p>
+            </form>
+        </div>
     </body>
 </html>
