@@ -1,10 +1,10 @@
 /*General CSS*/
 html {
-    /*padding-left: 300px;*/
+    padding: 100px;
     background-color: #98FB98;   
 }
 body {
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 
@@ -12,11 +12,10 @@ body {
     margin-top: 200px;
     margin-bottom: 100px;       
     z-index: 1;
-    height: 100%;
-    position: fixed;
+    height: 1000px;
     background-color: white;
-    padding-left: 300px;
-    padding-right: 300px;
+    padding-left: 100px;
+    padding-right: 100px;
     padding-top: 100px;
     padding-bottom: 0;
     background-position: center;
@@ -54,60 +53,45 @@ body {
     cursor: pointer;
 }
 
-.search {
-    height: 43px;
-    font-size:150%;
-}
-
-.calories {
-    float: left;
-    margin: auto;
-    width: 15%;
-    text-align: right;
-}
 
 span form {
     display: inline;
 }
 
-/*recipe_search specific*/
-.recipe-hit {
-    border-bottom-color: #775555;
-    border-bottom-style: solid;
-    border-bottom-width: medium;
-}
-
-.recipe-header {
-    border-bottom-color: #775555;
-    border-bottom-style: solid;
-    border-bottom-width: medium;
-}
-
-.recipe-label {
-    float: left;
-    margin: auto;
-    width: 85%;
-}
-
 /*App Store */
 .rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  color: #B6A0D2;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    color: #B6A0D2;
 }
 .rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
 }
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
+    content: "\2605";
+    position: absolute;
 }
 
 img {
-    display: block;
-    margin: auto;
-    width: 50%;
+    height: 40%;
+    width: 100%;
+}
+
+.italicized {
+    font-style: italic;
+}
+
+.future_additions {
+    font-weight: bold;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    //height: 100px;
+    //width: 70%;
+    //margin: auto;
+    background-position: center;
 }
