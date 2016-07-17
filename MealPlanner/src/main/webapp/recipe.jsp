@@ -23,8 +23,9 @@ if (null == userId) {
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+        <div class="content">
         <div align="right">
-        <a href="logout.jsp">Log out</a>
+        <a href="logout.jsp" class="signoutlink">Log out</a>
         </div>
         <h1>Recipe</h1>
         <div class="recipe-hit">
@@ -41,10 +42,11 @@ if (null == userId) {
         </ul>
         <br/><br/>
         <form action="search" method="POST">
-            <input type="submit" value="Done" />
+            <input type="submit" value="Done" class="button"/>
             <input type="hidden" name="q" value="${q}"/>
             <input type="hidden" name="from" value="${from}">
             <input type="hidden" name="to" value="${to}">
         </form>
+        </div>
     </body>
 </html>
