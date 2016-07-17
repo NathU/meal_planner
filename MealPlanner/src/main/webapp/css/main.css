@@ -1,3 +1,68 @@
+/*Modal*/
+.modal {
+    //display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: white; 
+
+
+    -webkit-animation-name: modal; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+
+    animation-name: modal;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;   
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #B6A0D2;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 15px;
+    width: 100%; /* Could be more or less, depending on screen size */
+    color: white;
+    font-family: "Novecento Sans Wide", sans-serif;
+    font-size: 300%;
+    text-align: center;
+}   
+
+/* The Modal (background) */
+@-webkit-keyframes modal {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+    50% {
+        display: block;
+        opacity: 1;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@keyframes modal {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+    50% {
+        display: none;
+        opacity: 1;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
 /*General CSS*/
 html {
     /*padding-left: 300px;*/
@@ -6,6 +71,10 @@ html {
 body {
     width: 60%;
     margin: auto;
+}
+
+td {
+    color: #775555;
 }
 
 .signoutlink {
@@ -100,17 +169,18 @@ span form {
 
 /*App Store */
 .rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  color: #B6A0D2;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    color: #B6A0D2;
 }
 .rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
 }
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
+    content: "\2605";
+    position: absolute;
 }
+
