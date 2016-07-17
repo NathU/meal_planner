@@ -22,11 +22,11 @@
                     <tbody>
                         <tr>
                             <td>Password</td>
-                            <td><input type="text" name="password" value="" /></td>
+                            <td><input type="text" name="password" value="" required /></td>
                         </tr>
                         <tr>
                             <td>Confirm Password</td>
-                            <td><input type="password" name="" value="" /></td>
+                            <td><input type="password" name="" value="" required /></td>
                         </tr>
                     </tbody>
                 </table>
