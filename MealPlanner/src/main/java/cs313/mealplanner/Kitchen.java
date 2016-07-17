@@ -21,7 +21,10 @@ public class Kitchen {
     public Kitchen () {
         USER = "admingBniAur";
         PASS = "cIE7pZ1LstTf";
-        DB_URL = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/kitchen";
+        String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+        String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+        DB_URL = String.format("jdbc:mysql://%s:%s/kitchen", host, port);
+        //DB_URL = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/kitchen";
     }
     
     // Use this constructor when testing on your local machine.
