@@ -28,7 +28,12 @@ if (null == userId) {
             <div align="right">
                 <a href="logout.jsp" class="signoutlink">Log out</a>
             </div>
-
+                <form action="search" method="POST">
+                <input type="text" id="query" name="q" class="search" />
+                <input type="submit" value="Search Recipes" class="button" />
+                <input type="hidden" name="from" value="0">
+                <input type="hidden" name="to" value="5">  
+            </form>
             <div id="header">
                 <h1>Week Plan</h1>
 

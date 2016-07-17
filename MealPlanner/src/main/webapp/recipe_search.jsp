@@ -55,6 +55,29 @@ if (null == userId) {
                                value="${hit.recipe.label}">
                         <input type="hidden" name="r" 
                                value="${hit.recipe.url}">
+                        <select name="meal"/>
+                            <option value="Sunday_breakfast">Sunday Breakfast</option>
+                            <option value="Sunday_lunch">Sunday Lunch</option>
+                            <option value="Sunday_dinner">Sunday Dinner</option>
+                            <option value="Monday_breakfast">Monday Breakfast</option>
+                            <option value="Monday_lunch">Monday Lunch</option>
+                            <option value="Monday_dinner">Monday Dinner</option>
+                            <option value="Tuesday_breakfast">Tuesday</option>
+                            <option value="Tuesday_lunch">Tuesday Lunch</option>
+                            <option value="Tuesday_dinner">Tuesday Dinner</option>
+                            <option value="Wednesday_breakfast">Wednesday Breakfast</option>
+                            <option value="Wednesday_lunch">Wednesday Lunch</option>
+                            <option value="Wednesday_dinner">Wednesday Dinner</option>
+                            <option value="Thursday_breakfast">Thursday Breakfast</option>
+                            <option value="Thursday_lunch">Thursday Lunch</option>
+                            <option value="Thursday_dinner">Thursday Dinner</option>
+                            <option value="Friday_breakfast">Friday Breakfast</option>
+                            <option value="Friday_lunch">Friday Lunch</option>
+                            <option value="Friday_dinner">Friday Dinner</option>
+                            <option value="Saturday_breakfast">Saturday Breakfast</option>
+                            <option value="Saturday_lunch">Saturday Lunch</option>
+                            <option value="Saturday_dinner">Saturday Dinner</option>
+                        </select>
                     </form>
                     <form action="RecipeInfo" method="POST">
                         <input type="submit" value="View Recipe" class="smallbutton" />
@@ -76,13 +99,16 @@ if (null == userId) {
                 <input type="hidden" name="from" value="${prevFrom}">
                 <input type="hidden" name="to" value="${prevTo}">
             </form>
-            </c:if>        
+            </c:if>
             <c:if test="${!empty nextFrom && nextTo < count}">
             <form action="search" method="POST">
                 <input type="submit" value="Next" class="button" />
                 <input type="hidden" name="q" value="${q}"/>
                 <input type="hidden" name="from" value="${nextFrom}">
                 <input type="hidden" name="to" value="${nextTo}">
+            </form>
+            <form action="week_plan.jsp" method="POST">
+                <input type="button" class="button" value="Back to Weekly Plan">
             </form>
             </c:if>
         </span>

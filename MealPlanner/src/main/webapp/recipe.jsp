@@ -43,7 +43,8 @@ if (null == userId) {
             <input type="hidden" name="from" value="${from}">
             <input type="hidden" name="to" value="${to}">
         </form>
-        <input type="button" value="View Full Recipe" onclick="window.open('${url}')">
+        <input type="button" class="button" value="View Full Recipe" 
+               onclick="window.open('${url}')">
         </div>
     </body>
 </html>
