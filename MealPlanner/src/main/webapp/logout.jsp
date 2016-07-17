@@ -20,20 +20,25 @@ if (null == userId) {
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="css/main.css">
+<div class="content">
 <form action="Logout">
-<table  width="50%" cellspacing="1" cellpadding="3" align="center">	
+    
+<table>	
 	<tr>
 		<td colspan="2"> Are you sure you would like to logout?</td>			
 	</tr>		
 	<tr>
 		<td> 
-			<input type="submit" id="submit" name="submit" value="OK"/>
+			<input type="submit" id="submit" name="submit" value="OK" class="button"/>
 		</td>
 		<td> 
-			<input type="submit" id="submit" name="submit" value="Cancel"/>
+			<input type="submit" id="submit" name="submit" value="Cancel" class="button"/>
 		</td>
 	</tr>
 </table>
+        
 <br/>
 
 </form>
+</div>
