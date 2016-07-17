@@ -10,17 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration</title>
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-         <body>
+        <div class="content">
         <form method="post" action="SignUp">
+            <h1>Enter Information Here</h1>
             <center>
-            <table border="2" width="30%" cellpadding="5">
-                <thead>
-                    <tr>
-                        <th colspan="2">Enter Information Here</th>
-                    </tr>
-                </thead>
+            <table>
                 <tbody>
                     <tr>
                         <td>Name</td>
@@ -91,15 +88,18 @@
                         </td>
                     </tr>                    
                     <tr>
-                        <td><input type="submit" value="Submit" /></td>
-                        <td><input type="reset" value="Reset" /></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Already registered!! <a href="index.jsp">Login Here</a></td>
+                        <td colspan="2"></td>
                     </tr>
                 </tbody>
             </table>
-            </center>
+            <input type="submit" value="Submit" class="button" />
+            <input type="reset" value="Reset" class="button" />
+            <p>Already registered!! <a href="index.jsp">Login Here</a></p>
         </form>
+            </div>
     </body>
 </html>
