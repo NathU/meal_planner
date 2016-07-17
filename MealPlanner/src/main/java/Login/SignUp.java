@@ -44,17 +44,19 @@ public class SignUp extends HttpServlet {
             String activity = request.getParameter("activity");
             String goal = request.getParameter("goal"); // needs to be an INT
             // height is gonna be in inches. Another uninformed DB design decision on my part... sorry!
-            int height = (fHeight != null && iHeight != null)? 
-                    (Integer.parseInt(fHeight) * 12) + Integer.parseInt(iHeight) : null;
+            int h = (fHeight != null && iHeight != null)? 
+                    (Integer.parseInt(fHeight) * 12) + Integer.parseInt(iHeight) : 0;
+            int w = (weight != null)? Integer.parseInt(weight) : 0;
+            int g = (weight != null)? Integer.parseInt(goal) : 0;
             
             Map user_info = new HashMap();
             user_info.put("name", name);
             user_info.put("dob", dob);
             user_info.put("gender", gender);
-            user_info.put("height", height);
-            user_info.put("weight", Integer.parseInt(weight));
+            user_info.put("height", h);
+            user_info.put("weight", w);
             user_info.put("activity", activity);
-            user_info.put("goal", Integer.parseInt(goal));
+            user_info.put("goal", g);
             
             Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
             //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
