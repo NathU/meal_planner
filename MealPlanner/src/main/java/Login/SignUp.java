@@ -14,8 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.annotation.WebServlet;
 
-
+@WebServlet(name = "SignUp", urlPatterns = {"/SignUp"})
 public class SignUp extends HttpServlet {
 
     /**
@@ -63,8 +64,8 @@ public class SignUp extends HttpServlet {
             user_info.put("activity", activity);
             user_info.put("goal", g);
             
-            Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
-            //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+            //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+            Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
             int affected_rows = kitchen.createNewAccount(email, password, user_info);
             
 

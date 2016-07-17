@@ -9,11 +9,13 @@ import cs313.mealplanner.Kitchen;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.*;
 
+@WebServlet(name = "UpdatePassword", urlPatterns = {"/UpdatePassword"})
 public class UpdatePassword extends HttpServlet {
 
     /**
@@ -35,8 +37,8 @@ public class UpdatePassword extends HttpServlet {
         String password= request.getParameter("password");
         out.println(password); // ?
         
-        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
-        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
         if (kitchen.updatePassword(email, password) != 1) {
             out.println("Error. Please try again later");
         } else {

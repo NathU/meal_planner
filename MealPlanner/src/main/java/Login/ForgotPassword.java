@@ -9,6 +9,7 @@ import cs313.mealplanner.Kitchen;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author samue
  */
+@WebServlet(name = "ForgotPassword", urlPatterns = {"/ForgotPassword"})
 public class ForgotPassword extends HttpServlet {
 
     /**
@@ -36,8 +38,8 @@ public class ForgotPassword extends HttpServlet {
         String email = request.getParameter("email");    
         String dob = request.getParameter("dob"); // I didn't know about this criteria before, so dob is NOT a required field in the database. So we can't count on it. Sorry.
         
-        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
-        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
         
         if (kitchen.userExists(email)) {
             request.getSession().setAttribute("email", email);

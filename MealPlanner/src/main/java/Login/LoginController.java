@@ -15,8 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.annotation.WebServlet;
 
-
+@WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
 
     /**
@@ -35,8 +36,8 @@ public class LoginController extends HttpServlet {
         String email = request.getParameter("email");    
         String password = request.getParameter("password");
         
-        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
-        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
         Map profile_info = new HashMap();
         profile_info = kitchen.getAccountInfo(email, password);
         
