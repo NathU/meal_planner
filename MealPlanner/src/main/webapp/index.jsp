@@ -13,7 +13,15 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+        
         <div class="content">
+            <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div id="healthtips"><p>The ULTIMATE Meal Planner Supreme Omega 2000 X52</p></div>
+            </div>
+        </div>
             <form method="post" action="LoginController">
                 <h1>Login</h2>
                 
@@ -38,5 +46,12 @@
                 <p>Forgot Password? Click <a href="forgot.jsp">here</a>!</p>
             </form>
         </div>
+        <script>
+            function updateAnimation(){
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            document.addEventListener("animationend", updateAnimation, true);
+        </script>
     </body>
 </html>
