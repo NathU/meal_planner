@@ -62,7 +62,7 @@ public class RecipeInfo extends HttpServlet {
                Map<String, Object> map2 = mapper.readValue(jsonInString2, Map.class);
                request.setAttribute("mealTitle", map2.get("label"));
                request.setAttribute("image", map2.get("image"));
-               request.setAttribute("url", map2.get("sourceUrl"));
+               request.setAttribute("url", map2.get("url"));
                List ingredient = (List) map2.get("ingredientLines");
                String ingredients = ingredient.toString();
                ingredients = ingredients.replace("[", "");
