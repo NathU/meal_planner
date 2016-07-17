@@ -12,6 +12,7 @@ if (null == userId) {
 	rd.forward(request, response);
 }
 %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,16 +39,19 @@ if (null == userId) {
                         <td>Breakfast: </td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Sunday_breakfast.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Sunday_lunch.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Supper</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Sunday_dinner.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                 </table>
             </div>
@@ -59,16 +63,19 @@ if (null == userId) {
                         <td>Breakfast: </td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Monday_breakfast.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Monday_lunch.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Supper</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Monday_dinner.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                 </table>
             </div>
@@ -80,16 +87,19 @@ if (null == userId) {
                         <td>Breakfast: </td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Tuesday_breakfast.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Tuesday_lunch.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Supper</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Tuesday_dinner.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                 </table>
             </div>
@@ -101,16 +111,19 @@ if (null == userId) {
                         <td>Breakfast: </td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Wednesday_breakfast.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Wednesday_lunch.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Supper</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Wednesday_dinner.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                 </table>
             </div>	
@@ -122,16 +135,19 @@ if (null == userId) {
                         <td>Breakfast: </td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Thursday_breakfast.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Thursday_lunch.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Supper</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Thursday_dinner.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                 </table>
             </div>
@@ -143,16 +159,19 @@ if (null == userId) {
                         <td>Breakfast: </td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Friday_breakfast.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Friday_lunch.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Supper</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Friday_dinner.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                 </table>
             </div>
@@ -164,16 +183,19 @@ if (null == userId) {
                         <td>Breakfast: </td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Saturday_breakfast.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Lunch</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Saturday_lunch.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                     <tr>
                         <td>Supper</td> 
                         <!--Should these params be a loop so they can put in as many recipes as they want? -->
                         <td>${mealplan.Saturday_dinner.label}</td>
+                        <td><span id="delete">x</span></td>
                     </tr>
                 </table>
             </div>
