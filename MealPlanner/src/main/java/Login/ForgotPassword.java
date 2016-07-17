@@ -36,8 +36,8 @@ public class ForgotPassword extends HttpServlet {
         String email = request.getParameter("email");    
         String dob = request.getParameter("dob"); // I didn't know about this criteria before, so dob is NOT a required field in the database. So we can't count on it. Sorry.
         
-        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
-        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
         
         if (kitchen.userExists(email)) {
             request.getSession().setAttribute("email", email);

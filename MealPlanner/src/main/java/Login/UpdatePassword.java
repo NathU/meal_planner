@@ -35,7 +35,8 @@ public class UpdatePassword extends HttpServlet {
         String password= request.getParameter("password");
         out.println(password); // ?
         
-        Kitchen kitchen = new Kitchen();
+        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
         if (kitchen.updatePassword(email, password) != 1) {
             out.println("Error. Please try again later");
         } else {
