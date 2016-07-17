@@ -22,10 +22,6 @@
                             <td>Please enter email</td>
                             <td><input type="text" name="email" value="" required /></td>
                         </tr>
-                        <tr>
-                            <td>Please enter birth date</td>
-                            <td><input name="dob" value="" required /></td>
-                        </tr>
                     </tbody>
                 </table>
                 <br>
