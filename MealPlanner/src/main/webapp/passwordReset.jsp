@@ -11,32 +11,29 @@
 <html>
     <head>
         <title>Password Reset</title>
+        <link rel="stylesheet" href="css/main.css">
     </head>
-    <body>
+    <body>  
+
         <form method="post" action="UpdatePassword">
-            <center>
-            <table border="2" width="35%" cellpadding="3">
-                <thead>
-                    <tr>
-                        <th colspan="2">Enter New Password</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="text" name="password" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Confirm Password</td>
-                        <td><input type="password" name="" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input type="submit" value="Reset Password" /></td>
-                    
-                    </tr>
-                </tbody>
-            </table>
-            </center>
+            <div class="content">
+                <h1>Enter New Password</h1>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="text" name="password" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td>Confirm Password</td>
+                            <td><input type="password" name="" value="" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <input type="submit" value="Reset Password" class="button" />
+            </div>
         </form>
+
     </body>
 </html>
