@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="item">
-                            <img src="img_chania2.jpg" alt="Chania">
+                            <img src="week_plan_picture.jpg" alt="Week Plan">
                         </div>
                     </div>
 
