@@ -128,7 +128,7 @@ public class Kitchen {
     
     // THis method allows you to plan a recipe that's not in DB yet.
     // In other words, it adds the recipe to DB if it's not already in there.
-    public Map addRecipeToPlan(String label, String url, String day_meal, int mealplan_id) {
+    public int addRecipeToPlan(String label, String url, String day_meal, int mealplan_id) {
         //first, make sure this recipe is in the DB
         Map recipe = new HashMap();
         recipe = getRecipe(label, url);
@@ -142,17 +142,10 @@ public class Kitchen {
         int id = Integer.parseInt((String)recipe.get("id"));
         
         // then, add the recipe to the plan
-        int rows_affected = modify("UPDATE meal_plans SET "+day_meal+" = (\"" + id + "\") WHERE id = ("+mealplan_id+")");
+        return modify("UPDATE meal_plans SET "+day_meal+" = (\"" + id + "\") WHERE id = ("+mealplan_id+")");
         
-        // and return the updated plan
-        if (rows_affected != 1) {
-            Map error = new HashMap();
-            error.put("error", "something went wrong...");
-            return error;
-        } else {
-            return getMealPlan(mealplan_id); //you'll want to set the meal_plan session var to this.
-        }
     }
+    
     
     public Map deleteRecipeFromPlan(int recipe_id, String day_meal, int mealplan_id) {
         // first, make sure that mealplan really has that recipe in it.
@@ -179,6 +172,10 @@ public class Kitchen {
         //modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
         //return getMealPlan(mealplan_id);
         
+    }
+    
+    public int simpleDelete(String day_meal, int mealplan_id) {
+        return modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
     }
     
     

@@ -8,6 +8,8 @@ package cs313.mealplanner;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +35,25 @@ public class delete_recipe extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String day_meal = request.getParameter("day_meal");
+        
+        Map mealplan = new HashMap();
+        mealplan = (HashMap)(request.getSession().getAttribute("mealplan"));
+        Map day = new HashMap();
+        day = (HashMap)(mealplan.get(day_meal));
+        
+        int deleteMe_id = Integer.parseInt((String)day.get("id"));
+        int mealplan_id = Integer.parseInt((String)mealplan.get("id"));
+        
+        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        
+        int affected_rows = kitchen.simpleDelete(day_meal, mealplan_id);
+        
+        request.getRequestDispatcher("view_week_plan").forward(request,response);
+        
+        /*
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
@@ -59,6 +80,7 @@ public class delete_recipe extends HttpServlet {
         //check true/fals if deleted
         
         //loop back to week_plan.jsp
+        */
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
