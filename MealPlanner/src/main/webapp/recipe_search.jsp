@@ -62,7 +62,7 @@ if (null == userId) {
                             <option value="Monday_breakfast">Monday Breakfast</option>
                             <option value="Monday_lunch">Monday Lunch</option>
                             <option value="Monday_dinner">Monday Dinner</option>
-                            <option value="Tuesday_breakfast">Tuesday</option>
+                            <option value="Tuesday_breakfast">Tuesday Breakfast</option>
                             <option value="Tuesday_lunch">Tuesday Lunch</option>
                             <option value="Tuesday_dinner">Tuesday Dinner</option>
                             <option value="Wednesday_breakfast">Wednesday Breakfast</option>
