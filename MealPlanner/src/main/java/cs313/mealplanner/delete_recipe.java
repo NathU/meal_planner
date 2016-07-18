@@ -7,6 +7,7 @@ package cs313.mealplanner;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,9 +39,9 @@ public class delete_recipe extends HttpServlet {
         }
         HttpSession session = request.getSession();
         //get day/meal that is getting deleted
-        int recipe_id = 123;
-        String day_meal = "";
-        int mealplan_id = 123;
+        int recipe_id = (int)session.getAttribute("recipe_id");
+        String day_meal = (String)session.getAttribute("day_meal");
+        int mealplan_id = (int)session.getAttribute("mealplan_id");
         
         
         //get recipe info that is getting deleted
@@ -48,6 +49,12 @@ public class delete_recipe extends HttpServlet {
         //grab kitchen.java method for deleting method
         Kitchen kitchen = new Kitchen();
         kitchen.deleteRecipeFromPlan(recipe_id, day_meal, mealplan_id);
+        
+        if (kitchen.deleteRecipeFromPlan(recipe_id, day_meal, mealplan_id) != null) {
+            out.println("Error. Please try again later");
+        } else {
+            response.sendRedirect("week_plan.jsp");
+        }
         
         //check true/fals if deleted
         
