@@ -5,6 +5,7 @@
  */
 package cs313.mealplanner;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -33,21 +34,13 @@ public class view_week_plan extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet view_week_plan</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h3> This is just to test the servlet and make sure it works... </h3> <hr/>");
-            out.println("<p>All user profile info: <br/>" + request.getSession().getAttribute("mealplan") + "</p>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+            throws ServletException, IOException {        
+        Kitchen plan = new Kitchen();
+        
+        Map<String, Object> profile_info = (Map) request.getSession().
+              getAttribute("profile_info");
+        
+        plan.getMealPlan((int)profile_info.get("mealplan_id"));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
