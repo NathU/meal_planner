@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-
+            <br>
             <p>This fantastic web site allows you to plan your week meals! You can quickly search the recipes on the site and add them to breakfast, lunch, or dinner of the day. 
                 It allows you to see the calories for each meal as well! Keep your week planned with recipes! It will help you keep track of your week by letting you log everything 
                 you eat. Check it out <a href="http://java-rafgyr05.rhcloud.com/MealPlanner/">here</a>!</p>
