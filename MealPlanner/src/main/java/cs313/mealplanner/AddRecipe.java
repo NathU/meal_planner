@@ -7,6 +7,7 @@ package cs313.mealplanner;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,14 +35,13 @@ public class AddRecipe extends HttpServlet {
          throws ServletException, IOException {
       
       Kitchen plan = new Kitchen();        
-      Map<String, Object> profile_info = (Map) request.getSession().
-              getAttribute("profile_info");
       
+      Map profile_info = (HashMap)(request.getSession().getAttribute("profile_info"));
       String label = (String) request.getAttribute("label");
       String url = (String) (String) request.getAttribute("r");
-      String day_meal = (String) request.getAttribute("meal");
+      String day_meal = (String) request.getAttribute("meal");      
       int mealplan_id = Integer.parseInt((String)profile_info.get("mealplan_id"));
-      
+
       plan.addRecipeToPlan(label, url, day_meal, mealplan_id);
 
       request.getRequestDispatcher("view_week_plan.java").forward(request, response);
