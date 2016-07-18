@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author リン
+ * @author 
  */
 @WebServlet(name = "AddRecipe", urlPatterns = {"/AddRecipe"})
 public class AddRecipe extends HttpServlet {
