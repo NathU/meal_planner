@@ -15,7 +15,6 @@
     </head>
     <body>
     <header>
-        <img class="banner" src="./banner.png" alt="The ULTIMATE Meal Planner Supreme Omega 2000 X52">
     </header>
     <div class="content">
         <label>Date of Birth: </label><input type="date" name="birthday" min="1900-01-02"> ${profile_info.dob}
