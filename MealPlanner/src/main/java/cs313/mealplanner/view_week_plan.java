@@ -40,7 +40,12 @@ public class view_week_plan extends HttpServlet {
         Map<String, Object> profile_info = (Map) request.getSession().
               getAttribute("profile_info");
         
-        plan.getMealPlan((int)profile_info.get("mealplan_id"));
+        Map<String, Object> meal_plan = plan.getMealPlan(
+              (int)profile_info.get("mealplan_id")
+        );
+        
+        request.setAttribute("meal_plan", meal_plan);
+        request.getRequestDispatcher("week_plan.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
