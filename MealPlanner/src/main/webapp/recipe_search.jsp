@@ -49,7 +49,7 @@ if (null == userId) {
                     value="${hit.recipe.calories}" type="number" 
                     maxFractionDigits="0"/> Calories</div>
                 <span>
-                    <form action="" method="POST">
+                    <form action="AddRecipe" method="POST">
                         <input type="submit" value="Add" class="smallbutton" />
                         <input type="hidden" name="label" 
                                value="${hit.recipe.label}">

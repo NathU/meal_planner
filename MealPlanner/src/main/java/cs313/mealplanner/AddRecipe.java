@@ -32,10 +32,18 @@ public class AddRecipe extends HttpServlet {
     */
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
-      Kitchen plan = new Kitchen();
+      String label = (String) request.getAttribute("label");
+      String url = (String) (String) request.getAttribute("r");
+      String day_meal = (String) request.getAttribute("meal");
+      Kitchen plan = new Kitchen();      
         
       Map<String, Object> profile_info = (Map) request.getSession().
               getAttribute("profile_info");
+      
+      plan.addRecipeToPlan(label, url, day_meal, 
+            (int) profile_info.get("mealplan_id"));
+
+      request.getRequestDispatcher("view_week_plan.java").forward(request, response);
    }
 
    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
