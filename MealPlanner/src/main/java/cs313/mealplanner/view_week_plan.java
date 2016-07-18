@@ -34,11 +34,10 @@ public class view_week_plan extends HttpServlet {
             throws ServletException, IOException {        
         Kitchen plan = new Kitchen();
         
-        Map<String, Object> profile_info = (Map) request.getSession().
-              getAttribute("profile_info");
+        Map profile_info = (HashMap)(request.getSession().getAttribute("profile_info"));
         
         Map<String, Object> meal_plan = plan.getMealPlan(
-              (int)profile_info.get("mealplan_id")
+              Integer.parseInt((String)profile_info.get("mealplan_id"))
         );
         
         request.setAttribute("mealplan", meal_plan);
