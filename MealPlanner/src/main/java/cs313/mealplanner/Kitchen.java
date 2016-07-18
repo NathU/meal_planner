@@ -39,20 +39,7 @@ public class Kitchen {
     // PS, don't forget your \" when building prepared statements.
     public Map getAccountInfo (String email, String password) {
         Map user_table_data = new HashMap();
-        //Map meal_plan_table_data = new HashMap();
-        
         user_table_data = retrieve("SELECT * FROM users WHERE users.email = \""+email+"\" AND users.password = \""+password+"\"");
-        /*
-        user_table_data.put("user_id", user_table_data.get("id")); // "id" is going to be overwritten here in a sec...
-        
-        if (user_table_data.get("mealplan_id") != null) {
-            meal_plan_table_data = retrieve("SELECT * FROM meal_plans WHERE meal_plans.id = "+((String)user_table_data.get("mealplan_id"))+"");
-            user_table_data.putAll( meal_plan_table_data );
-            user_table_data.put("plan_id", meal_plan_table_data.get("id")); // "id" has been overwritten, so lets name it what it really is now...
-        }
-        
-        user_table_data.remove("id"); // and get rid of the redundant/ambiguously-named variable 'id'.
-        */
         return user_table_data;
     }
     
@@ -65,14 +52,24 @@ public class Kitchen {
     // mealplan_id is found in the Map returned from getAccountInfo, above.
     public Map getMealPlan (int mealplan_id) {
         Map mealplan = new HashMap();
+        //mealplan = retrieve("SELECT * FROM meal_plans WHERE meal_plans.id = \""+mealplan_id+"\""); // this just returns day_meals and recipe id's
         Map temp = retrieve("SELECT * FROM meal_plans WHERE meal_plans.id = \""+mealplan_id+"\"");
         Set<String> meals_of_days = temp.keySet();
         
         for (String meal : meals_of_days) {
-            if (!(meal.equals("id")))
-                mealplan.put(meal, getRecipe(Integer.parseInt((String)(temp.get(meal)))));
+            if (!(meal.equals("id"))) {
+                if (temp.get(meal) != null) {
+                    int recipe_id = Integer.parseInt((String)temp.get(meal));
+                    mealplan.put(meal, getRecipe(recipe_id));
+                } else {
+                    Map empty_recipe = new HashMap();
+                    empty_recipe.put("id", null);
+                    empty_recipe.put("label", null);
+                    empty_recipe.put("url", null);
+                    mealplan.put(meal, empty_recipe);
+                }
+            }
         }
-        
         return mealplan;
     }
     
@@ -87,27 +84,34 @@ public class Kitchen {
     }
     
     public int createNewAccount (String email, String password, Map user_info) {
+        int rows_affected = 0;
+        // Create the new user...
         String insert = 
                 "INSERT INTO users (email, password, name, dob, gender, height, weight, activity, goal) VALUES ("
                 + "\""+email+"\", "
                 + "\""+password+"\", "
                 + "\""+user_info.get("name")+"\", "
-                + "\""+user_info.get("name")+ "\", "
+                + "\""+user_info.get("dob")+ "\", "
                 + "\""+user_info.get("gender")+"\", "
                 + ""+user_info.get("height")+", "
                 + ""+user_info.get("weight")+", "
                 + "\""+user_info.get("activity")+"\", "
                 + ""+user_info.get("goal")+")";
-        return modify(insert);
-    }
-    
-    // TODO: finish this...
-    public int createNewMealPlan (int userId, Map plan) {
-        // First 'modify' inserts plan into meal_plans table.
-        // Second 'modify' updates users table with the newly inserted meal plan's id.
-        // Two rows should be affected after all this. If not, we're in trouble, so return 0.
-        int affected_rows = modify("") + modify("");
-        return affected_rows > 1 ? affected_rows : 0;
+        rows_affected += modify(insert);
+        
+        // ...then create his/her meal plan...
+        rows_affected += modify("INSERT INTO meal_plans (Sunday_breakfast) VALUES(NULL)");
+        
+        Map most_recent_mealplan_id = new HashMap();
+        most_recent_mealplan_id = retrieve("SELECT MAX(id) FROM meal_plans");
+        int id = Integer.parseInt((String)most_recent_mealplan_id.get("MAX(id)"));
+        
+        // ...then link the two together.
+        //rows_affected += modify("INSERT INTO users.mealplan_id VALUES("+id+") ");
+        rows_affected += modify("UPDATE users SET mealplan_id = (" + id + ") WHERE email = (\"" + email + "\")");
+        
+        // Now return the number of rows affected. Should be 3 i think...
+        return rows_affected;
     }
     
     public int insertRecipe (String label, String url) {
@@ -146,7 +150,7 @@ public class Kitchen {
             error.put("error", "something went wrong...");
             return error;
         } else {
-            return getMealPlan(mealplan_id);
+            return getMealPlan(mealplan_id); //you'll want to set the meal_plan session var to this.
         }
     }
     
@@ -167,7 +171,7 @@ public class Kitchen {
             error.put("error", "something went wrong...");
             return error;
         } else {
-            return getMealPlan(mealplan_id);
+            return getMealPlan(mealplan_id); //you'll want to set the meal_plan session var to this.
         }
         
         

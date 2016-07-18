@@ -1,13 +1,8 @@
 package Login;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import cs313.mealplanner.Kitchen;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -66,33 +61,37 @@ public class SignUp extends HttpServlet {
             
             Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
             //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
-            int affected_rows = kitchen.createNewAccount(email, password, user_info);
+            int affected_rows = 0;
+            affected_rows = kitchen.createNewAccount(email, password, user_info);
             
 
-            if (affected_rows != 1 ) {
+            if (affected_rows == 0 ) {
                 response.sendRedirect("index.jsp");
             } else {
                 Map profile_info = kitchen.getAccountInfo(email, password);
                 request.getSession().setAttribute("profile_info", profile_info); // so we have mealplan_id in a session var
                 request.getSession().setAttribute("email", email); //redundant, but that's ok.
-                response.sendRedirect("week_plan.jsp");
+                response.sendRedirect("view_week_plan.java");
+                //tempFunc(request, response); // just for testing purposes again.
             }
-       /*     
-       try{
-            Class.forName("com.mysql.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitchen", "root", "");
-            Statement st = con.createStatement();
-            //ResultSet rs;
-            int i = st.executeUpdate("INSERT INTO users VALUES ('" + email + "','" + password + "','" + name + "','" + dob + "','" + gender + "','" + fHeight + "','" + iHeight + "','" + weight + "','" + activity + "','" + goal + "')" );
-            if (i > 0) {
-                 response.sendRedirect("week_plan.jsp");
-            } else {
-                response.sendRedirect("index.jsp");
-            } 
-       }
-        catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            } */
+    }
+    
+    protected void tempFunc(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet view_week_plan</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h3> This is just to test the servlet and make sure stuff works... </h3> <hr/>");
+            out.println("<p>All user profile info: <br/>" + request.getSession().getAttribute("profile_info") + "</p>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

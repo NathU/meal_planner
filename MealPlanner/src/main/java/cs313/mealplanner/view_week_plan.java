@@ -6,6 +6,8 @@
 package cs313.mealplanner;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -21,6 +23,32 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "view_week_plan", urlPatterns = {"/view_week_plan"})
 public class view_week_plan extends HttpServlet {
 
+        /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Map temp = (HashMap)(request.getSession().getAttribute("profile_info"));
+        Map mealplan = new HashMap();
+        
+        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
+        
+        int mealplan_id = Integer.parseInt((String)temp.get("mealplan_id"));
+        mealplan = kitchen.getMealPlan(mealplan_id);
+        request.getSession().setAttribute("mealplan", mealplan);       
+        
+        request.getRequestDispatcher("week_plan.jsp").forward(request, response);
+        //processRequest(request, response); //this is for testing purposes. if you want to see what the data looks like, go here instead of week_plan.jsp
+    }
+    
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,20 +59,30 @@ public class view_week_plan extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
-        Kitchen plan = new Kitchen();
-        
-        Map profile_info = (HashMap)(request.getSession().getAttribute("profile_info"));
-        
-        Map<String, Object> meal_plan = plan.getMealPlan(
-              Integer.parseInt((String)profile_info.get("mealplan_id"))
-        );
-        
-        request.setAttribute("mealplan", meal_plan);
-        request.getRequestDispatcher("week_plan.jsp").forward(request, response);
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet view_week_plan</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h3> This is just to test the servlet and make sure it works... </h3> <hr/>");
+           
+            Map temp = (HashMap)(request.getSession().getAttribute("profile_info"));
+            out.println("<p>temp Map should contain profile info: <br/>" + temp + "</p>");
+            
+            out.println("<p>temp Map contains mealplanID : <br/>" + Integer.parseInt((String)temp.get("mealplan_id")) + "</p>");
+            
+            out.println("<p>profile info: <br/>" + request.getSession().getAttribute("profile_info") + "</p>");
+            out.println("<p>meal plan info: <br/>" + request.getSession().getAttribute("mealplan") + "</p>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -59,50 +97,7 @@ public class view_week_plan extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Map temp = (HashMap)(request.getSession().getAttribute("profile_info"));
-        /*ArrayList week_plan = new ArrayList();
-        week_plan.add(temp.get("Sunday_breakfast"));
-        week_plan.add(temp.get("Sunday_lunch"));
-        week_plan.add(temp.get("Sunday_dinner"));
-        week_plan.add(temp.get("Monday_breakfast"));
-        week_plan.add(temp.get("Monday_lunch"));
-        week_plan.add(temp.get("Monday_dinner"));
-        week_plan.add(temp.get("Tuesday_breakfast"));
-        week_plan.add(temp.get("Tuesday_lunch"));
-        week_plan.add(temp.get("Tuesday_dinner"));
-        week_plan.add(temp.get("Wednesday_breakfast"));
-        week_plan.add(temp.get("Wednesday_lunch"));
-        week_plan.add(temp.get("Wednesday_dinner"));
-        week_plan.add(temp.get("Thursday_breakfast"));
-        week_plan.add(temp.get("Thursday_lunch"));
-        week_plan.add(temp.get("Thursday_dinner"));
-        week_plan.add(temp.get("Friday_breakfast"));
-        week_plan.add(temp.get("Friday_lunch"));
-        week_plan.add(temp.get("Friday_dinner"));
-        week_plan.add(temp.get("Saturday_breakfast"));
-        week_plan.add(temp.get("Saturday_lunch"));
-        week_plan.add(temp.get("Saturday_dinner"));*/
-        
-        Kitchen kitchen = new Kitchen();
-        Map mealplan = new HashMap();
-        mealplan = kitchen.getMealPlan(Integer.parseInt((String)(temp.get("mealplan_id"))));
-        
-        request.getSession().setAttribute("mealplan", mealplan);       
-        
-        request.getRequestDispatcher("week_plan.jsp").forward(request, response);
-        //processRequest(request, response);
-    }
+
 
     /**
      * Returns a short description of the servlet.

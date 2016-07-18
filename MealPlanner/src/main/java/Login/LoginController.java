@@ -44,7 +44,9 @@ public class LoginController extends HttpServlet {
         if (profile_info.get("email") != null) {
             request.getSession().setAttribute("profile_info", profile_info); // so we have mealplan_id in a session var
             request.getSession().setAttribute("email", email); //redundant, but that's ok.
-            response.sendRedirect("week_plan.jsp");
+            
+            request.getRequestDispatcher("view_week_plan").forward(request,response);
+            
         } else {
             out.println("Invalid password <a href='index.jsp'>try again</a>");
         }
