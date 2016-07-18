@@ -41,7 +41,7 @@ public class view_week_plan extends HttpServlet {
               (int)profile_info.get("mealplan_id")
         );
         
-        request.setAttribute("meal_plan", meal_plan);
+        request.setAttribute("mealplan", meal_plan);
         request.getRequestDispatcher("week_plan.jsp").forward(request, response);
     }
 
