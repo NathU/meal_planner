@@ -107,7 +107,7 @@ if (null == userId) {
                 <input type="hidden" name="from" value="${nextFrom}">
                 <input type="hidden" name="to" value="${nextTo}">
             </form>
-            <form action="week_plan.jsp" method="POST">
+            <form action="view_week_plan" method="POST">
                 <input type="submit" class="button" value="Back to Weekly Plan">
             </form>
             </c:if>
