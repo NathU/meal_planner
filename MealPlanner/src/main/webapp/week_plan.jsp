@@ -60,7 +60,7 @@
                             <c:set var="check" value="${mealplan.Sunday_breakfast.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Sunday_breakfast.label} </td>
-                                <td><button onclick="deleteRecipe('Sunday_breakfast')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Sunday_breakfast')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -72,7 +72,7 @@
                             <c:set var="check" value="${mealplan.Sunday_lunch.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Sunday_lunch.label} </td>
-                                <td><button onclick="deleteRecipe('Sunday_lunch')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Sunday_lunch')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -84,7 +84,7 @@
                             <c:set var="check" value="${mealplan.Sunday_dinner.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Sunday_dinner.label} </td>
-                                <td><button onclick="deleteRecipe('Sunday_dinner')" value="x" />x</span></td>
+                                <td><button onclick="deleteRecipe('Sunday_dinner')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -102,7 +102,7 @@
                             <c:set var="check" value="${mealplan.Monday_breakfast.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Monday_breakfast.label} </td>
-                                <td><button onclick="deleteRecipe('Monday_breakfast')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Monday_breakfast')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -114,7 +114,7 @@
                             <c:set var="check" value="${mealplan.Monday_lunch.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Monday_lunch.label} </td>
-                                <td><button onclick="deleteRecipe('Monday_lunch')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Monday_lunch')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -126,7 +126,7 @@
                             <c:set var="check" value="${mealplan.Monday_dinner.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Monday_dinner.label} </td>
-                                <td><button onclick="deleteRecipe('Monday_dinner')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Monday_dinner')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -144,7 +144,7 @@
                             <c:set var="check" value="${mealplan.Tuesday_breakfast.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Tuesday_breakfast.label} </td>
-                                <td><button onclick="deleteRecipe('Tuesday_breakfast')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Tuesday_breakfast')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -156,7 +156,7 @@
                             <c:set var="check" value="${mealplan.Tuesday_lunch.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Tuesday_lunch.label} </td>
-                                <td><button onclick="deleteRecipe('Tuesday_lunch')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Tuesday_lunch')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -168,7 +168,7 @@
                             <c:set var="check" value="${mealplan.Tuesday_dinner.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Tuesday_dinner.label} </td>
-                                <td><button onclick="deleteRecipe('Tuesday_dinner')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Tuesday_dinner')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -186,7 +186,7 @@
                             <c:set var="check" value="${mealplan.Wednesday_breakfast.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Wednesday_breakfast.label} </td>
-                                <td><button onclick="deleteRecipe('Wednesday_breakfast')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Wednesday_breakfast')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -198,7 +198,7 @@
                             <c:set var="check" value="${mealplan.Wednesday_lunch.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Wednesday_lunch.label} </td>
-                                <td><button onclick="deleteRecipe('Wednesday_lunch')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Wednesday_lunch')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -210,7 +210,7 @@
                             <c:set var="check" value="${mealplan.Wednesday_dinner.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Wednesday_dinner.label} </td>
-                                <td><button onclick="deleteRecipe('Wednesday_dinner')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Wednesday_dinner')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -228,7 +228,7 @@
                             <c:set var="check" value="${mealplan.Thursday_breakfast.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Thursday_breakfast.label} </td>
-                                <td><button onclick="deleteRecipe('Thursday_breakfast')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Thursday_breakfast')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -240,7 +240,7 @@
                             <c:set var="check" value="${mealplan.Thursday_lunch.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Thursday_lunch.label} </td>
-                                <td><button onclick="deleteRecipe('Thursday_lunch')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Thursday_lunch')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -252,7 +252,7 @@
                             <c:set var="check" value="${mealplan.Thursday_dinner.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Thursday_dinner.label} </td>
-                                <td><button onclick="deleteRecipe('Thursday_dinner')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Thursday_dinner')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -270,7 +270,7 @@
                             <c:set var="check" value="${mealplan.Friday_breakfast.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Friday_breakfast.label} </td>
-                                <td><button onclick="deleteRecipe('Friday_breakfast')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Friday_breakfast')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -282,7 +282,7 @@
                             <c:set var="check" value="${mealplan.Friday_lunch.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Friday_lunch.label} </td>
-                                <td><button onclick="deleteRecipe('Friday_lunch')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Friday_lunch')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -294,7 +294,7 @@
                             <c:set var="check" value="${mealplan.Friday_dinner.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Friday_dinner.label} </td>
-                                <td><button onclick="deleteRecipe('Friday_dinner')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Friday_dinner')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -312,7 +312,7 @@
                             <c:set var="check" value="${mealplan.Saturday_breakfast.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Saturday_breakfast.label} </td>
-                                <td><button onclick="deleteRecipe('Saturday_breakfast')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Saturday_breakfast')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -324,7 +324,7 @@
                             <c:set var="check" value="${mealplan.Saturday_lunch.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Saturday_lunch.label} </td>
-                                <td><button onclick="deleteRecipe('Saturday_lunch')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Saturday_lunch')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
@@ -336,7 +336,7 @@
                             <c:set var="check" value="${mealplan.Saturday_dinner.label}"/>
                             <c:if test="${check != null}">
                                 <td> ${mealplan.Saturday_dinner.label} </td>
-                                <td><button onclick="deleteRecipe('Saturday_dinner')" value="x" /></td>
+                                <td><button onclick="deleteRecipe('Saturday_dinner')" value="x" >x</button></td>
                             </c:if>
                             <c:if test="${check == null}">
                                 <td> &nbsp; </td>
