@@ -119,7 +119,7 @@ public class Kitchen {
         if (url == null || url.equals("")) {
             return 0;
         }
-        return modify("INSERT INTO recipes (label, password, url) VALUES (\""+label+"\", \""+url+"\")");
+        return modify("INSERT INTO recipes (label, url) VALUES (\""+label+"\", \""+url+"\")");
     }
     
     public int updatePassword (String email, String password) {
@@ -175,7 +175,7 @@ public class Kitchen {
     }
     
     public int simpleDelete(String day_meal, int mealplan_id) {
-        return modify("DELETE meal_plans."+day_meal+" FROM meal_plans WHERE id = ("+mealplan_id+")");
+        return modify("UPDATE meal_plans SET "+day_meal+" = (NULL) WHERE id = ("+mealplan_id+")");
     }
     
     

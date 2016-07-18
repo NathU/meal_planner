@@ -38,13 +38,8 @@ public class delete_recipe extends HttpServlet {
         
         String day_meal = request.getParameter("day_meal");
         
-        Map mealplan = new HashMap();
-        mealplan = (HashMap)(request.getSession().getAttribute("mealplan"));
-        Map day = new HashMap();
-        day = (HashMap)(mealplan.get(day_meal));
-        
-        int deleteMe_id = Integer.parseInt((String)day.get("id"));
-        int mealplan_id = Integer.parseInt((String)mealplan.get("id"));
+        Map profile_info = (HashMap)(request.getSession().getAttribute("profile_info"));
+        int mealplan_id = Integer.parseInt((String)profile_info.get("mealplan_id"));
         
         Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
         //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...
@@ -53,34 +48,6 @@ public class delete_recipe extends HttpServlet {
         
         request.getRequestDispatcher("view_week_plan").forward(request,response);
         
-        /*
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
-        }
-        HttpSession session = request.getSession();
-        //get day/meal that is getting deleted
-        int recipe_id = (int)session.getAttribute("recipe_id");
-        String day_meal = (String)session.getAttribute("day_meal");
-        int mealplan_id = (int)session.getAttribute("mealplan_id");
-        
-        
-        //get recipe info that is getting deleted
-        
-        //grab kitchen.java method for deleting method
-        Kitchen kitchen = new Kitchen();
-        kitchen.deleteRecipeFromPlan(recipe_id, day_meal, mealplan_id);
-        
-        if (kitchen.deleteRecipeFromPlan(recipe_id, day_meal, mealplan_id) != null) {
-            out.println("Error. Please try again later");
-        } else {
-            response.sendRedirect("week_plan.jsp");
-        }
-        
-        //check true/fals if deleted
-        
-        //loop back to week_plan.jsp
-        */
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

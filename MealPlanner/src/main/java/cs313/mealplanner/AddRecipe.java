@@ -33,18 +33,22 @@ public class AddRecipe extends HttpServlet {
     */
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
-      
-      Kitchen plan = new Kitchen();        
-      
-      Map profile_info = (HashMap)(request.getSession().getAttribute("profile_info"));
-      String label = (String) request.getAttribute("label");
-      String url = (String) (String) request.getAttribute("r");
-      String day_meal = (String) request.getAttribute("meal");      
-      int mealplan_id = Integer.parseInt((String)profile_info.get("mealplan_id"));
+       
+       // does the day already have a recipe? (delete it)
 
-      plan.addRecipeToPlan(label, url, day_meal, mealplan_id);
+        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...        
 
-      request.getRequestDispatcher("view_week_plan.java").forward(request, response);
+        Map profile_info = (HashMap)(request.getSession().getAttribute("profile_info"));
+        String label = request.getParameter("label");
+        String url = request.getParameter("r");
+        String day_meal = request.getParameter("meal");      
+        int mealplan_id = Integer.parseInt((String)profile_info.get("mealplan_id"));
+
+        kitchen.insertRecipe(label, url);
+        kitchen.addRecipeToPlan(label, url, day_meal, mealplan_id);
+
+        request.getRequestDispatcher("view_week_plan").forward(request, response);
    }
 
    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
