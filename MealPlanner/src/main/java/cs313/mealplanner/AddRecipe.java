@@ -36,8 +36,8 @@ public class AddRecipe extends HttpServlet {
        
        // does the day already have a recipe? (delete it)
 
-        //Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
-        Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...        
+        Kitchen kitchen = new Kitchen(); // use THIS for the live site on OpenShift
+        //Kitchen kitchen = new Kitchen("root", ""); // for testing on my machine...        
 
         Map profile_info = (HashMap)(request.getSession().getAttribute("profile_info"));
         String label = request.getParameter("label");
