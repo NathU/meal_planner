@@ -71,7 +71,7 @@ public class SignUp extends HttpServlet {
                 Map profile_info = kitchen.getAccountInfo(email, password);
                 request.getSession().setAttribute("profile_info", profile_info); // so we have mealplan_id in a session var
                 request.getSession().setAttribute("email", email); //redundant, but that's ok.
-                response.sendRedirect("view_week_plan");
+                request.getRequestDispatcher("view_week_plan").forward(request,response);
                 //tempFunc(request, response); // just for testing purposes again.
             }
     }
